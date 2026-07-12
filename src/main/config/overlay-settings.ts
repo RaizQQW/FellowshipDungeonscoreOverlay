@@ -1,0 +1,511 @@
+import type {
+  NormalizedOverlaySettings,
+  OverlaySettingsStore,
+} from '../../types/main-process';
+import type {
+  DungeonBestEntry,
+  DungeonBestScores,
+  HeroBestScores,
+  OverlayHotkeys,
+  LayoutDirection,
+  LanguageCode,
+  OverlayPanelPositions,
+  OverlaySettings,
+  RecentSkillsGrowthDirection,
+  RecentSkillsLayoutDirection,
+  OverlayVisibilitySettings,
+  PlayerPositions,
+  Point,
+  SkillSelectionMap,
+} from '../../types/overlay';
+
+import * as fs from 'fs';
+import * as path from 'path';
+
+const DEFAULT_LANGUAGE: LanguageCode = 'en';
+const DEFAULT_PULL_PANEL_POSITION: Point = { x: 16, y: 12 };
+const DEFAULT_RECENT_SKILLS_PANEL_POSITION: Point = { x: 16, y: 200 };
+const DEFAULT_DUNGEON_SCORES_PANEL_POSITION: Point = { x: 16, y: 360 };
+const DEFAULT_RECENT_SKILLS_LIMIT = 7;
+const DEFAULT_VISIBILITY_SETTINGS: OverlayVisibilitySettings = { showParty: true, showPull: false, showRecentSkills: false, showDungeonScores: true };
+const DEFAULT_SEASON_START_DATE = '2026-06-23';
+const CARD_SCALE_MIN = 0.30;
+const CARD_SCALE_MAX = 1.8;
+const DEFAULT_CARD_SCALE = 0.7;
+const FRAME_GAP_MIN = 0;
+const FRAME_GAP_MAX = 40;
+const DEFAULT_FRAME_GAP = 12;
+const PANEL_OPACITY_MIN = 0.2;
+const PANEL_OPACITY_MAX = 1;
+const DEFAULT_PANEL_OPACITY = 0.88;
+const ICONS_PER_ROW_MIN = 1;
+const ICONS_PER_ROW_MAX = 6;
+const DEFAULT_ICONS_PER_ROW = 3;
+const RECENT_SKILLS_TRACK_COUNT_MIN = 1;
+const RECENT_SKILLS_TRACK_COUNT_MAX = 6;
+const DEFAULT_RECENT_SKILLS_TRACK_COUNT = 3;
+const DEFAULT_AUTO_HIDE_WITH_GAME_WINDOW = false;
+const DEFAULT_LAYOUT_DIRECTION: LayoutDirection = 'vertical';
+const DEFAULT_HOTKEYS: OverlayHotkeys = {
+  toggleInteraction: 'F8',
+  pickLog: 'F9',
+  toggleVisibility: 'F10',
+  openSettings: 'F11',
+};
+const DEFAULT_RECENT_SKILLS_LAYOUT_DIRECTION: RecentSkillsLayoutDirection = 'horizontal';
+const DEFAULT_RECENT_SKILLS_GROWTH_DIRECTION: RecentSkillsGrowthDirection = 'right';
+const LOG_FILE_EXTENSIONS = new Set(['.txt', '.log']);
+
+const I18N: Record<LanguageCode, Record<string, string>> = {
+  en: {
+    trayTooltip: 'Fellowship Overlay',
+    trayHide: 'Hide overlay',
+    trayShow: 'Show overlay',
+    traySettings: 'Settings',
+    trayExit: 'Exit',
+    watchFileUnavailable: 'Selected log file is unavailable',
+    watchFolderUnavailable: 'Selected folder is unavailable',
+    watchFolderActive: 'Watching folder for the newest log file',
+    noLogFiles: 'No .log or .txt files found in the selected folder',
+    logFolder: 'Log folder',
+  },
+  ru: {
+    trayTooltip: 'Fellowship Overlay',
+    trayHide: 'Скрыть оверлей',
+    trayShow: 'Показать оверлей',
+    traySettings: 'Настройки',
+    trayExit: 'Выход',
+    watchFileUnavailable: 'Текущий лог-файл недоступен',
+    watchFolderUnavailable: 'Выбранная папка недоступна',
+    watchFolderActive: 'Слежение за папкой и последним логом активно',
+    noLogFiles: 'В выбранной папке не найдено файлов .log или .txt',
+    logFolder: 'Папка с логами',
+  },
+};
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {};
+}
+
+function normalizeLanguage(value: unknown): LanguageCode {
+  return String(value || '').toLowerCase() === 'ru' ? 'ru' : 'en';
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
+function normalizePosition(value: unknown, fallback: Point): Point {
+  const source = asRecord(value);
+  const x = Number(source.x);
+  const y = Number(source.y);
+  if (!Number.isFinite(x) || !Number.isFinite(y)) {
+    return { x: fallback.x, y: fallback.y };
+  }
+  return { x: Math.round(x), y: Math.round(y) };
+}
+
+function normalizePlayerPositions(value: unknown): PlayerPositions {
+  const source = asRecord(value);
+  const normalized: PlayerPositions = {};
+
+  Object.entries(source).forEach(([key, position]) => {
+    const point = normalizePosition(position, { x: NaN, y: NaN });
+    if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    normalized[String(key)] = point;
+  });
+
+  return normalized;
+}
+
+function normalizePanelPositions(value: unknown): OverlayPanelPositions {
+  const source = asRecord(value);
+  return {
+    pullInfo: normalizePosition(source.pullInfo, DEFAULT_PULL_PANEL_POSITION),
+    recentSkills: normalizePosition(source.recentSkills, DEFAULT_RECENT_SKILLS_PANEL_POSITION),
+    dungeonScores: normalizePosition(source.dungeonScores, DEFAULT_DUNGEON_SCORES_PANEL_POSITION),
+  };
+}
+
+function normalizeSeasonStartDate(value: unknown): string {
+  const normalized = String(value || '').trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(normalized)) return DEFAULT_SEASON_START_DATE;
+  return Number.isFinite(Date.parse(normalized)) ? normalized : DEFAULT_SEASON_START_DATE;
+}
+
+function normalizeDungeonBestEntry(value: unknown): DungeonBestEntry | null {
+  const source = asRecord(value);
+  const score = Number(source.score);
+  const tier = Number(source.tier);
+  const clearedAt = String(source.clearedAt || '').trim();
+  if (!Number.isFinite(score) || score <= 0) return null;
+  return {
+    score: Math.round(score * 100) / 100,
+    tier: Number.isFinite(tier) ? Math.round(tier) : 0,
+    clearedAt,
+  };
+}
+
+function normalizeHeroDungeonMap(value: unknown): DungeonBestScores {
+  const source = asRecord(value);
+  const normalized: DungeonBestScores = {};
+
+  Object.entries(source).forEach(([dungeonName, entry]) => {
+    const name = String(dungeonName || '').trim();
+    if (!name) return;
+    const normalizedEntry = normalizeDungeonBestEntry(entry);
+    if (!normalizedEntry) return;
+    normalized[name] = normalizedEntry;
+  });
+
+  return normalized;
+}
+
+// Scores are stored per hero: { heroName: { dungeonName: entry } }.
+// Legacy flat entries ({ dungeonName: entry }) are dropped here on purpose:
+// they can't be attributed to a hero, and the startup log backfill rebuilds
+// the full per-hero history from the season's combat logs anyway.
+function normalizeDungeonBestScores(value: unknown): HeroBestScores {
+  const source = asRecord(value);
+  const normalized: HeroBestScores = {};
+
+  Object.entries(source).forEach(([heroName, heroEntry]) => {
+    const hero = String(heroName || '').trim();
+    if (!hero) return;
+    // Legacy flat shape: the value is a score entry itself, not a hero bucket.
+    if (Number.isFinite(Number(asRecord(heroEntry).score))) return;
+    const dungeonMap = normalizeHeroDungeonMap(heroEntry);
+    if (!Object.keys(dungeonMap).length) return;
+    normalized[hero] = dungeonMap;
+  });
+
+  return normalized;
+}
+
+function normalizeVisibilitySettings(value: unknown): OverlayVisibilitySettings {
+  const source = asRecord(value);
+  return {
+    showParty: typeof source.showParty === 'boolean'
+      ? source.showParty
+      : DEFAULT_VISIBILITY_SETTINGS.showParty,
+    showPull: typeof source.showPull === 'boolean'
+      ? source.showPull
+      : DEFAULT_VISIBILITY_SETTINGS.showPull,
+    showRecentSkills: typeof source.showRecentSkills === 'boolean'
+      ? source.showRecentSkills
+      : DEFAULT_VISIBILITY_SETTINGS.showRecentSkills,
+    showDungeonScores: typeof source.showDungeonScores === 'boolean'
+      ? source.showDungeonScores
+      : DEFAULT_VISIBILITY_SETTINGS.showDungeonScores,
+  };
+}
+
+function normalizeRecentSkillsLimit(value: unknown): number {
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized)) return DEFAULT_RECENT_SKILLS_LIMIT;
+  return Math.round(clamp(normalized, 1, 20));
+}
+
+function normalizeSkillSelections(value: unknown): SkillSelectionMap {
+  const source = asRecord(value);
+  const normalized: SkillSelectionMap = {};
+
+  Object.entries(source).forEach(([classId, abilityIds]) => {
+    const parsedClassId = String(Number(classId));
+    if (!parsedClassId || parsedClassId === 'NaN') return;
+    normalized[parsedClassId] = (Array.isArray(abilityIds) ? abilityIds : [])
+      .map((id) => String(Number(id)))
+      .filter((id) => id && id !== 'NaN');
+  });
+
+  return normalized;
+}
+
+function normalizeCardScale(value: unknown): number {
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized)) return DEFAULT_CARD_SCALE;
+  return Math.round(clamp(normalized, CARD_SCALE_MIN, CARD_SCALE_MAX) * 100) / 100;
+}
+
+function normalizeFrameGap(value: unknown): number {
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized)) return DEFAULT_FRAME_GAP;
+  return Math.round(clamp(normalized, FRAME_GAP_MIN, FRAME_GAP_MAX));
+}
+
+function normalizePanelOpacity(value: unknown): number {
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized)) return DEFAULT_PANEL_OPACITY;
+  return Math.round(clamp(normalized, PANEL_OPACITY_MIN, PANEL_OPACITY_MAX) * 100) / 100;
+}
+
+function normalizeIconsPerRow(value: unknown): number {
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized)) return DEFAULT_ICONS_PER_ROW;
+  return Math.round(clamp(normalized, ICONS_PER_ROW_MIN, ICONS_PER_ROW_MAX));
+}
+
+function normalizeLayoutDirection(value: unknown): LayoutDirection {
+  return String(value || '').toLowerCase() === 'horizontal' ? 'horizontal' : 'vertical';
+}
+
+function normalizeRecentSkillsLayoutDirection(value: unknown): RecentSkillsLayoutDirection {
+  return String(value || '').toLowerCase() === 'vertical' ? 'vertical' : 'horizontal';
+}
+
+function normalizeRecentSkillsGrowthDirection(value: unknown): RecentSkillsGrowthDirection {
+  const normalized = String(value || '').toLowerCase();
+  if (normalized === 'left' || normalized === 'up' || normalized === 'down') return normalized;
+  return DEFAULT_RECENT_SKILLS_GROWTH_DIRECTION;
+}
+
+function normalizeRecentSkillsTrackCount(value: unknown): number {
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized)) return DEFAULT_RECENT_SKILLS_TRACK_COUNT;
+  return Math.round(clamp(normalized, RECENT_SKILLS_TRACK_COUNT_MIN, RECENT_SKILLS_TRACK_COUNT_MAX));
+}
+
+function normalizeAutoHideWithGameWindow(value: unknown): boolean {
+  return typeof value === 'boolean' ? value : DEFAULT_AUTO_HIDE_WITH_GAME_WINDOW;
+}
+
+function normalizeStoredPath(value: unknown): string | null {
+  const normalized = String(value || '').trim();
+  return normalized || null;
+}
+
+function normalizeHotkey(value: unknown, fallback: string): string {
+  const normalized = String(value || '').trim();
+  return normalized || fallback;
+}
+
+function normalizeHotkeys(value: unknown): OverlayHotkeys {
+  const source = asRecord(value);
+  return {
+    toggleInteraction: normalizeHotkey(source.toggleInteraction, DEFAULT_HOTKEYS.toggleInteraction),
+    pickLog: normalizeHotkey(source.pickLog, DEFAULT_HOTKEYS.pickLog),
+    toggleVisibility: normalizeHotkey(source.toggleVisibility, DEFAULT_HOTKEYS.toggleVisibility),
+    openSettings: normalizeHotkey(source.openSettings, DEFAULT_HOTKEYS.openSettings),
+  };
+}
+
+function normalizeCurrentFilePath(value: unknown): string | null {
+  return normalizeStoredPath(value);
+}
+
+function normalizeDirectoryPath(value: unknown): string | null {
+  return normalizeStoredPath(value);
+}
+
+function normalizeSettings(value: unknown): NormalizedOverlaySettings {
+  const source = asRecord(value);
+  const legacyCurrentFilePath = normalizeCurrentFilePath(source.currentFilePath);
+  const logDirectoryPath = normalizeDirectoryPath(source.logDirectoryPath)
+    || (legacyCurrentFilePath ? path.dirname(legacyCurrentFilePath) : null);
+
+  return {
+    language: normalizeLanguage(source.language),
+    logDirectoryPath,
+    currentFilePath: legacyCurrentFilePath,
+    playerPositions: normalizePlayerPositions(source.playerPositions),
+    panelPositions: normalizePanelPositions(source.panelPositions),
+    visibilitySettings: normalizeVisibilitySettings(source.visibilitySettings),
+    recentSkillsLimit: normalizeRecentSkillsLimit(source.recentSkillsLimit),
+    selectedSkillsByClass: normalizeSkillSelections(source.selectedSkillsByClass),
+    cardScale: normalizeCardScale(source.cardScale),
+    frameGap: normalizeFrameGap(source.frameGap),
+    layoutDirection: normalizeLayoutDirection(source.layoutDirection),
+    panelOpacity: normalizePanelOpacity(source.panelOpacity),
+    iconsPerRow: normalizeIconsPerRow(source.iconsPerRow),
+    recentSkillsLayoutDirection: normalizeRecentSkillsLayoutDirection(source.recentSkillsLayoutDirection),
+    recentSkillsGrowthDirection: normalizeRecentSkillsGrowthDirection(source.recentSkillsGrowthDirection),
+    recentSkillsTrackCount: normalizeRecentSkillsTrackCount(source.recentSkillsTrackCount),
+    autoHideWithGameWindow: normalizeAutoHideWithGameWindow(source.autoHideWithGameWindow),
+    hotkeys: normalizeHotkeys(source.hotkeys),
+    seasonStartDate: normalizeSeasonStartDate(source.seasonStartDate),
+    dungeonBestScores: normalizeDungeonBestScores(source.dungeonBestScores),
+  };
+}
+
+function mergeSettings(baseSettings: unknown, partialSettings: unknown): NormalizedOverlaySettings {
+  const base = normalizeSettings(baseSettings);
+  const partial = asRecord(partialSettings);
+  const partialPanelPositions = asRecord(partial.panelPositions);
+  const partialVisibilitySettings = asRecord(partial.visibilitySettings);
+
+  return normalizeSettings({
+    ...base,
+    ...partial,
+    panelPositions: {
+      ...base.panelPositions,
+      ...partialPanelPositions,
+    },
+    visibilitySettings: {
+      ...base.visibilitySettings,
+      ...partialVisibilitySettings,
+    },
+    playerPositions: partial.playerPositions === undefined ? base.playerPositions : partial.playerPositions,
+    selectedSkillsByClass: partial.selectedSkillsByClass === undefined ? base.selectedSkillsByClass : partial.selectedSkillsByClass,
+    dungeonBestScores: partial.dungeonBestScores === undefined ? base.dungeonBestScores : partial.dungeonBestScores,
+  });
+}
+
+function createOverlaySettingsStore({ settingsFile }: { settingsFile: string }): OverlaySettingsStore {
+  function readSettingsFrom(filePath: string): NormalizedOverlaySettings | null {
+    try {
+      const raw = fs.readFileSync(filePath, 'utf8');
+      if (!raw.trim()) return null;
+      return normalizeSettings(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  }
+
+  // Try the live file first; if it's missing or was corrupted by an interrupted
+  // write, fall back to the last known-good backup so recorded scores survive.
+  function loadSettings(): NormalizedOverlaySettings {
+    return readSettingsFrom(settingsFile)
+      ?? readSettingsFrom(`${settingsFile}.bak`)
+      ?? normalizeSettings({});
+  }
+
+  // Atomic save: write to a temp file, fsync it, promote the current good file
+  // to .bak, then rename the temp over the target. A crash or power loss can
+  // only leave a stray .tmp behind — never a truncated settings.json, so a
+  // whole season of dungeon scores can't be wiped by one bad write.
+  function saveSettings(nextSettings: unknown): void {
+    try {
+      const normalized = normalizeSettings(nextSettings);
+      const dir = path.dirname(settingsFile);
+      fs.mkdirSync(dir, { recursive: true });
+
+      const tmpFile = `${settingsFile}.tmp`;
+      const fd = fs.openSync(tmpFile, 'w');
+      try {
+        fs.writeSync(fd, JSON.stringify(normalized, null, 2), null, 'utf8');
+        fs.fsyncSync(fd);
+      } finally {
+        fs.closeSync(fd);
+      }
+
+      try {
+        if (fs.existsSync(settingsFile)) {
+          fs.copyFileSync(settingsFile, `${settingsFile}.bak`);
+        }
+      } catch {}
+
+      fs.renameSync(tmpFile, settingsFile);
+    } catch {}
+  }
+
+  let settings: NormalizedOverlaySettings = loadSettings();
+
+  return {
+    t(key: string): string {
+      const lang = normalizeLanguage(settings.language);
+      return I18N[lang]?.[key] || I18N[DEFAULT_LANGUAGE]?.[key] || key;
+    },
+    getSettings(): NormalizedOverlaySettings {
+      return normalizeSettings(settings);
+    },
+    getCurrentLanguage(): LanguageCode {
+      return normalizeLanguage(settings.language);
+    },
+    setCurrentLanguage(language: unknown): LanguageCode {
+      settings = mergeSettings(settings, { language: normalizeLanguage(language) });
+      saveSettings(settings);
+      return normalizeLanguage(settings.language);
+    },
+    getPlayerPositions(): PlayerPositions {
+      return normalizePlayerPositions(settings.playerPositions);
+    },
+    setPlayerPositions(playerPositions: PlayerPositions): PlayerPositions {
+      settings = mergeSettings(settings, { playerPositions });
+      saveSettings(settings);
+      return normalizePlayerPositions(settings.playerPositions);
+    },
+    getOverlaySettings(): NormalizedOverlaySettings {
+      return normalizeSettings(settings);
+    },
+    saveOverlaySettings(partialSettings: Partial<OverlaySettings>): NormalizedOverlaySettings {
+      // dungeonBestScores is owned by the main process (backfill + live tail).
+      // The renderer sends its full cached settings on every save, so a stale
+      // startup snapshot would otherwise overwrite freshly recorded clears.
+      const sanitized: Partial<OverlaySettings> = { ...asRecord(partialSettings) } as Partial<OverlaySettings>;
+      delete sanitized.dungeonBestScores;
+      settings = mergeSettings(settings, sanitized);
+      saveSettings(settings);
+      return normalizeSettings(settings);
+    },
+    getCurrentFilePath(): string | null {
+      return settings.currentFilePath || null;
+    },
+    setCurrentFilePath(filePath: unknown): string | null {
+      const normalized = normalizeCurrentFilePath(filePath);
+      settings = mergeSettings(settings, { currentFilePath: normalized });
+      saveSettings(settings);
+      return settings.currentFilePath || null;
+    },
+    getCurrentDirectoryPath(): string | null {
+      return settings.logDirectoryPath || null;
+    },
+    setCurrentDirectoryPath(directoryPath: unknown): string | null {
+      const normalized = normalizeDirectoryPath(directoryPath);
+      settings = mergeSettings(settings, { logDirectoryPath: normalized });
+      saveSettings(settings);
+      return settings.logDirectoryPath || null;
+    },
+    normalizeDirectoryPath,
+    normalizeCurrentFilePath,
+    getDungeonBestScores(): HeroBestScores {
+      return normalizeDungeonBestScores(settings.dungeonBestScores);
+    },
+    setDungeonBestScores(dungeonBestScores: HeroBestScores): HeroBestScores {
+      settings = mergeSettings(settings, { dungeonBestScores: normalizeDungeonBestScores(dungeonBestScores) });
+      saveSettings(settings);
+      return normalizeDungeonBestScores(settings.dungeonBestScores);
+    },
+    getSeasonStartDate(): string {
+      return normalizeSeasonStartDate(settings.seasonStartDate);
+    },
+  };
+}
+
+export {
+  CARD_SCALE_MAX,
+  CARD_SCALE_MIN,
+  DEFAULT_CARD_SCALE,
+  DEFAULT_FRAME_GAP,
+  DEFAULT_HOTKEYS,
+  DEFAULT_ICONS_PER_ROW,
+  DEFAULT_LAYOUT_DIRECTION,
+  DEFAULT_LANGUAGE,
+  DEFAULT_PANEL_OPACITY,
+  DEFAULT_DUNGEON_SCORES_PANEL_POSITION,
+  DEFAULT_PULL_PANEL_POSITION,
+  DEFAULT_RECENT_SKILLS_GROWTH_DIRECTION,
+  DEFAULT_RECENT_SKILLS_LIMIT,
+  DEFAULT_RECENT_SKILLS_LAYOUT_DIRECTION,
+  DEFAULT_RECENT_SKILLS_PANEL_POSITION,
+  DEFAULT_RECENT_SKILLS_TRACK_COUNT,
+  FRAME_GAP_MAX,
+  FRAME_GAP_MIN,
+  I18N,
+  ICONS_PER_ROW_MAX,
+  ICONS_PER_ROW_MIN,
+  LOG_FILE_EXTENSIONS,
+  PANEL_OPACITY_MAX,
+  PANEL_OPACITY_MIN,
+  RECENT_SKILLS_TRACK_COUNT_MAX,
+  RECENT_SKILLS_TRACK_COUNT_MIN,
+  clamp,
+  createOverlaySettingsStore,
+  DEFAULT_SEASON_START_DATE,
+  normalizeAutoHideWithGameWindow,
+  normalizeDungeonBestScores,
+  normalizeLanguage,
+  normalizeHotkeys,
+  normalizeSeasonStartDate,
+};

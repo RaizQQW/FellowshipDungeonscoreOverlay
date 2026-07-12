@@ -1,0 +1,54 @@
+{
+  "name": "fellowship-overlay",
+  "version": "1.6.2",
+  "description": "Fellowship overlay",
+  "main": "dist/main/index.js",
+  "author": "AOV",
+  "private": true,
+  "scripts": {
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder --win=portable",
+    "build": "tsc",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "electron": "^41.0.3",
+    "electron-builder": "^26.8.1",
+    "typescript": "^5.8.3",
+    "eslint": "^9.22.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0"
+  },
+  "build": {
+    "appId": "com.aov.fellowshipoverlay",
+    "productName": "Fellowship Overlay",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "src/renderer/**/*",
+      "game-data/**/*",
+      "icons/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": ["portable"],
+      "artifactName": "Fellowship-Overlay-Setup-${version}.${ext}",
+      "icon": "icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "icons/icon.ico",
+      "uninstallerIcon": "icons/icon.ico",
+      "installerHeaderIcon": "icons/icon.ico"
+    },
+    "portable": {
+      "artifactName": "Fellowship Overlay.exe"
+    }
+  }
+}
