@@ -115,6 +115,8 @@
     }
 
     const numberLocale = currentLanguage === 'ru' ? 'ru-RU' : 'en-US';
+    const rotation = window.OverlayRendererRotation;
+
     const sections = heroSections.map((section) => {
       const heroColor = HERO_COLORS[section.hero] || '#9ca3af';
       const rows = section.entries.map((entry) => `
@@ -125,44 +127,42 @@
         </div>
       `).join('');
 
+      // Per-hero optimizer: each hero climbs independently, so "run next" is
+      // based on this hero's own highest cleared tier (raw tier - 20 = Eternal
+      // level). Heroes not yet in Eternal (tier <= 20) get no recommendation -
+      // the rotation model only covers Eternal difficulties.
+      let heroMaxTier = 0;
+      for (const entry of section.entries) {
+        const t = Number(entry?.tier);
+        if (Number.isFinite(t) && t > heroMaxTier) heroMaxTier = t;
+      }
+      const heroEternal = heroMaxTier > 20 ? heroMaxTier - 20 : 0;
+      let optimizerHtml = '';
+      if (heroEternal >= 1 && rotation) {
+        const rec = rotation.recommend(heroEternal);
+        const optRows = rec.picks.map((pick, index) => `
+          <div class="dungeon-opt-row${index === 0 ? ' dungeon-opt-top' : ''}">
+            <span class="dungeon-opt-name">${escapeHtml(pick.name)}${pick.isCapstone ? ' \u2605' : ''}</span>
+            <span class="dungeon-opt-gap">${pick.gap > 0 ? 'next E' + pick.returnsAt + ' (+' + pick.gap + ')' : 'now'}</span>
+          </div>`).join('');
+        optimizerHtml = `
+          <div class="dungeon-opt">
+            <div class="dungeon-opt-title">Run next \u00b7 Eternal ${heroEternal}</div>
+            ${optRows}
+          </div>`;
+      }
+
       return `
         <div class="dungeon-scores-hero${section.isCurrent ? ' dungeon-scores-hero-current' : ''}">
           <div class="dungeon-scores-hero-name" style="color: ${heroColor};">${escapeHtml(section.hero)}</div>
+          ${optimizerHtml}
           <div class="dungeon-scores-list">${rows}</div>
         </div>
       `;
     }).join('');
 
-    // Optimizer: current eternal level = highest cleared tier (raw tier - 20).
-    // Ranks the currently-offered dungeons by scarcity (levels until they next
-    // appear) so you capture score on the ones that won't return for a while.
-    let maxTier = 0;
-    for (const scores of Object.values(dungeonBestScores || {})) {
-      for (const entry of Object.values(scores || {})) {
-        const t = Number(entry?.tier);
-        if (Number.isFinite(t) && t > maxTier) maxTier = t;
-      }
-    }
-    const currentEternal = maxTier > 20 ? maxTier - 20 : 0;
-    const rotation = window.OverlayRendererRotation;
-    let optimizerHtml = '';
-    if (currentEternal >= 1 && rotation) {
-      const rec = rotation.recommend(currentEternal);
-      const optRows = rec.picks.map((pick, index) => `
-        <div class="dungeon-opt-row${index === 0 ? ' dungeon-opt-top' : ''}">
-          <span class="dungeon-opt-name">${escapeHtml(pick.name)}${pick.isCapstone ? ' \u2605' : ''}</span>
-          <span class="dungeon-opt-gap">${pick.gap > 0 ? 'next E' + pick.returnsAt + ' (+' + pick.gap + ')' : 'now'}</span>
-        </div>`).join('');
-      optimizerHtml = `
-        <div class="dungeon-opt">
-          <div class="dungeon-opt-title">Run next \u00b7 Eternal ${currentEternal}</div>
-          ${optRows}
-        </div>`;
-    }
-
     dungeonScoresPanelEl.innerHTML = `
       ${header}
-      ${optimizerHtml}
       ${sections}
     `;
     updateDungeonScoresPanelVisibility();
