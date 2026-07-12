@@ -374,6 +374,13 @@
         if (trackedSkill) displayIcons.push(trackedSkill);
       });
 
+      // Relics and spell cooldowns only load during an active dungeon run
+      // (DUNGEON_START seen, no DUNGEON_END yet) — the inverse of the dungeon
+      // scores panel, which is shown only outside a run.
+      const activeRunData = getLatestData() as { dungeon?: { startedAt?: string | null; endedAt?: string | null } } | null;
+      const inActiveDungeonRun = !!(activeRunData?.dungeon?.startedAt && !activeRunData.dungeon.endedAt);
+      if (!inActiveDungeonRun) displayIcons.length = 0;
+
       // Relics are placed only where the '__relics__' token sits in the order.
       // If the user deselected relics (token absent), they are intentionally
       // not shown — no forced fallback.
