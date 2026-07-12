@@ -24,6 +24,7 @@ import type {
 } from '../types/overlay';
 
 import { app, BrowserWindow, ipcMain, dialog, screen, globalShortcut, Tray, Menu } from 'electron';
+import { notifyIfUpdateAvailable } from './services/update-check';
 import { spawn } from 'child_process';
 import type { ChildProcess } from 'child_process';
 import * as path from 'path';
@@ -842,6 +843,7 @@ app.whenReady().then(() => {
   createWindow();
   registerConfiguredHotkeys();
   startGameWindowTracking();
+  void notifyIfUpdateAvailable();
 
   ipcMain.handle('pick-log-file', async (): Promise<PickDirectoryResult> => chooseLogDirectory());
   ipcMain.handle('reload-current-file', async () => logDirectoryService.reloadCurrentFile());
