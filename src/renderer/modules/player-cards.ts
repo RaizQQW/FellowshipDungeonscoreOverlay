@@ -165,7 +165,9 @@
 
   function getOrderedTokensForClass(selectedSkillsByClass: SkillSelectionMap, classId: number | null): string[] {
     const normalizedClassId = String(Number(classId || 0));
-    const raw = Array.isArray(selectedSkillsByClass[normalizedClassId]) ? selectedSkillsByClass[normalizedClassId] : [];
+    const stored = selectedSkillsByClass[normalizedClassId];
+    const hasStored = Array.isArray(stored);
+    const raw = hasStored ? stored : [];
     const seen = new Set<string>();
     const tokens: string[] = [];
 
@@ -176,7 +178,10 @@
       tokens.push(normalizedToken);
     });
 
-    if (!seen.has(RELICS_ORDER_TOKEN)) tokens.push(RELICS_ORDER_TOKEN);
+    // Relics show by default only for classes the user never configured; a
+    // stored selection without the token means relics were deliberately turned
+    // off. Existing selections keep relics (the token was always persisted).
+    if (!hasStored) tokens.push(RELICS_ORDER_TOKEN);
     return tokens;
   }
 
@@ -369,7 +374,10 @@
         if (trackedSkill) displayIcons.push(trackedSkill);
       });
 
-      if (!relicsInserted) displayIcons.push(...relicIcons);
+      // Relics are placed only where the '__relics__' token sits in the order.
+      // If the user deselected relics (token absent), they are intentionally
+      // not shown — no forced fallback.
+      void relicsInserted;
       applyCardLayout(card, getCardScale(), displayIcons.length, getIconsPerRow());
 
       const playerName = card.querySelector<HTMLElement>('.player-name');
@@ -442,7 +450,6 @@
         const card = cardMap.get(player.id);
         if (!card) return;
         (player.relics || []).forEach((relic) => {
-          if (!relic.cooldownEndsAt) return;
           const endMs = Date.parse(relic.cooldownEndsAt);
           relic.cooldownRemainingMs = Number.isFinite(endMs) ? Math.max(0, endMs - now) : 0;
           relic.isReady = relic.cooldownRemainingMs <= 0;

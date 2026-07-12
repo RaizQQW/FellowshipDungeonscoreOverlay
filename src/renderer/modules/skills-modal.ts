@@ -4,7 +4,9 @@
 
   function getOrderedTokens(selectedSkillsByClass: SkillSelectionMap, classId: number): string[] {
     const normalizedClassId = String(Number(classId || 0));
-    const raw = Array.isArray(selectedSkillsByClass[normalizedClassId]) ? selectedSkillsByClass[normalizedClassId] : [];
+    const stored = selectedSkillsByClass[normalizedClassId];
+    const hasStored = Array.isArray(stored);
+    const raw = hasStored ? stored : [];
     const tokens: string[] = [];
     const seen = new Set<string>();
 
@@ -15,7 +17,11 @@
       tokens.push(normalized);
     });
 
-    if (!seen.has(RELICS_ORDER_TOKEN)) tokens.push(RELICS_ORDER_TOKEN);
+    // Relics default ON only for classes never configured; once a class has a
+    // stored selection, relics appear only if the user kept the token (so they
+    // can now be deselected). Existing users keep relics because the token was
+    // always persisted before this change.
+    if (!hasStored) tokens.push(RELICS_ORDER_TOKEN);
     return tokens;
   }
 
@@ -31,7 +37,8 @@
       normalized.push(nextToken);
     });
 
-    if (!seen.has(RELICS_ORDER_TOKEN)) normalized.push(RELICS_ORDER_TOKEN);
+    // Persist exactly what was chosen — no forced relics token — so an explicit
+    // deselect sticks.
     selectedSkillsByClass[normalizedClassId] = normalized;
   }
 
@@ -44,6 +51,19 @@
         <span class="skill-option-text">
           <span class="skill-option-name">${escapeHtml(ability.name)}</span>
           <span class="skill-option-cooldown">${escapeHtml(ability.cooldown)}s</span>
+        </span>
+      </label>
+    `;
+  }
+
+  function buildRelicsOption(classId: number, selected: boolean, t: (key: string) => string): string {
+    const checked = selected ? 'checked' : '';
+    return `
+      <label class="skill-option">
+        <input type="checkbox" data-class-id="${classId}" data-relics-toggle="1" ${checked} />
+        <img class="skill-option-icon" src="${toAssetSrc('game-data/relics/empty.jpg')}" alt="${escapeHtml(t('relics'))}" />
+        <span class="skill-option-text">
+          <span class="skill-option-name">${escapeHtml(t('relics'))}</span>
         </span>
       </label>
     `;
@@ -77,7 +97,9 @@
       const selected = new Set(orderedTokens.filter((token) => token !== RELICS_ORDER_TOKEN));
       const abilitiesById = new Map((heroClass.abilities || []).map((ability) => [String(ability.id), ability]));
       const orderedItems = orderedTokens.map((token) => buildDraggableOrderItem(token, heroClass.id, abilitiesById, t)).join('');
-      const options = (heroClass.abilities || []).map((ability) => buildAbilityOption(heroClass.id, ability, selected.has(String(ability.id)))).join('');
+      const relicsSelected = orderedTokens.includes(RELICS_ORDER_TOKEN);
+      const relicsOption = buildRelicsOption(heroClass.id, relicsSelected, t);
+      const options = relicsOption + (heroClass.abilities || []).map((ability) => buildAbilityOption(heroClass.id, ability, selected.has(String(ability.id)))).join('');
       return `
         <section class="skill-class-group">
           <div class="skill-class-title">${escapeHtml(heroClass.name)}</div>
@@ -92,10 +114,20 @@
       checkbox.addEventListener('change', (event: Event) => {
         const input = event.currentTarget as HTMLInputElement;
         const classId = Number(input.dataset.classId || 0);
-        const abilityId = String(Number(input.dataset.abilityId || 0));
-        const current = getOrderedTokens(selectedSkillsByClass, classId).filter((token) => token !== RELICS_ORDER_TOKEN);
-        const next = input.checked ? [...current, abilityId] : current.filter((token) => token !== abilityId);
-        saveOrderedTokens(selectedSkillsByClass, classId, [...next, RELICS_ORDER_TOKEN]);
+        const currentAll = getOrderedTokens(selectedSkillsByClass, classId);
+        const abilityTokens = currentAll.filter((token) => token !== RELICS_ORDER_TOKEN);
+
+        if (input.dataset.relicsToggle) {
+          const next = input.checked ? [...abilityTokens, RELICS_ORDER_TOKEN] : abilityTokens;
+          saveOrderedTokens(selectedSkillsByClass, classId, next);
+        } else {
+          const abilityId = String(Number(input.dataset.abilityId || 0));
+          const hasRelics = currentAll.includes(RELICS_ORDER_TOKEN);
+          const nextAbilities = input.checked ? [...abilityTokens, abilityId] : abilityTokens.filter((token) => token !== abilityId);
+          const next = hasRelics ? [...nextAbilities, RELICS_ORDER_TOKEN] : nextAbilities;
+          saveOrderedTokens(selectedSkillsByClass, classId, next);
+        }
+
         saveSkillSelections();
         renderSkillsModal(args);
         if (latestData()?.players) renderPlayers(latestData()?.players || []);
