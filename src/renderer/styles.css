@@ -873,3 +873,44 @@ button:hover {
 
 
 
+
+.dungeon-opt {
+  margin-top: 4px;
+  padding: 4px 5px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(120, 170, 255, 0.22);
+  background: rgba(90, 150, 255, 0.08);
+}
+
+.dungeon-opt-title {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+  margin-bottom: 3px;
+}
+
+.dungeon-opt-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  align-items: baseline;
+  opacity: 0.8;
+}
+
+.dungeon-opt-top {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.dungeon-opt-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dungeon-opt-gap {
+  text-align: right;
+  opacity: 0.7;
+  font-size: 11px;
+}

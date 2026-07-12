@@ -26,6 +26,7 @@ declare interface Window {
   OverlayRendererLayout: import('./overlay').RendererLayoutApi;
   OverlayRendererPlayerCards: import('./overlay').RendererPlayerCardsApi;
   OverlayRendererSkillsModal: import('./overlay').RendererSkillsModalApi;
+  OverlayRendererRotation: import('./overlay').RendererRotationApi;
 }
 
 

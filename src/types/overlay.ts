@@ -764,3 +764,18 @@ export interface RenderSkillsModalArgs {
 export interface RendererSkillsModalApi {
   renderSkillsModal(args: RenderSkillsModalArgs): void;
 }
+
+export interface RotationPick {
+  name: string;
+  isCapstone: boolean;
+  gap: number;
+  returnsAt: number | null;
+}
+
+export interface RendererRotationApi {
+  normalsForEternal(eternal: number): string[];
+  capstoneForEternal(eternal: number): string;
+  isOffered(name: string, eternal: number): boolean;
+  nextReturn(name: string, fromEternal: number, maxLevel?: number): number;
+  recommend(currentEternal: number): { eternal: number; picks: RotationPick[] };
+}
