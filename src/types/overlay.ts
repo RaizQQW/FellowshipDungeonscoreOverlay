@@ -610,9 +610,13 @@ export interface DungeonScoresPanelVisibilityArgs {
 export interface RenderDungeonScoresPanelArgs {
   currentLanguage: LanguageCode;
   currentHero: string | null;
+  // Hero whose key levels the user has pinned via the tab bar. Null means
+  // "follow the current hero" (auto). Ignored if the hero has no scores.
+  selectedHero: string | null;
   dungeonBestScores: HeroBestScores;
   dungeonScoresPanelEl: HTMLElement;
   translate: (key: string) => string;
+  onSelectHero(hero: string): void;
   updateDungeonScoresPanelVisibility(): void;
 }
 

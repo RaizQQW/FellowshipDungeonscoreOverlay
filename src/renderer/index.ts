@@ -153,6 +153,9 @@ let lastWatchStatusMessage = '';
 let visibilitySettings: OverlayVisibilitySettings = settingsController.loadVisibilitySettings();
 let dungeonBestScores: HeroBestScores = settingsController.loadDungeonBestScores();
 let lastRenderedHero: string | null = null;
+// Hero pinned by the user via the dungeon-scores tab bar. Null = follow the
+// current hero automatically.
+let selectedDungeonScoresHero: string | null = null;
 let recentSkillsLimit = settingsController.loadRecentSkillsLimit();
 let recentSkillsLayoutDirection = settingsController.loadRecentSkillsLayoutDirection();
 let recentSkillsGrowthDirection = settingsController.loadRecentSkillsGrowthDirection();
@@ -315,11 +318,20 @@ function renderDungeonScoresPanel(): void {
   renderDungeonScoresPanelShared({
     currentLanguage,
     currentHero: lastRenderedHero,
+    selectedHero: selectedDungeonScoresHero,
     dungeonBestScores,
     dungeonScoresPanelEl,
     translate: t,
+    onSelectHero: selectDungeonScoresHero,
     updateDungeonScoresPanelVisibility,
   });
+}
+
+// User tapped a hero tab in the dungeon-scores panel: pin that hero and
+// re-render so only their key levels show.
+function selectDungeonScoresHero(hero: string): void {
+  selectedDungeonScoresHero = hero;
+  renderDungeonScoresPanel();
 }
 
 function getAbilityCatalogEntry(classId: number | null, abilityId: number | null) {

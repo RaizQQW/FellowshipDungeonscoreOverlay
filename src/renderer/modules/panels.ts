@@ -74,9 +74,11 @@
   function renderDungeonScoresPanel({
     currentLanguage,
     currentHero,
+    selectedHero,
     dungeonBestScores,
     dungeonScoresPanelEl,
     translate,
+    onSelectHero,
     updateDungeonScoresPanelVisibility,
   }: RenderDungeonScoresPanelArgs): void {
     // One section per hero: scores are tracked per character (e.g. Sylvie vs
@@ -117,7 +119,8 @@
     const numberLocale = currentLanguage === 'ru' ? 'ru-RU' : 'en-US';
     const rotation = window.OverlayRendererRotation;
 
-    const sections = heroSections.map((section) => {
+    const sectionHtmlByHero = new Map<string, string>();
+    heroSections.forEach((section) => {
       const heroColor = HERO_COLORS[section.hero] || '#9ca3af';
       const rows = section.entries.map((entry) => `
         <div class="dungeon-scores-row">
@@ -152,19 +155,54 @@
           </div>`;
       }
 
-      return `
+      sectionHtmlByHero.set(section.hero, `
         <div class="dungeon-scores-hero${section.isCurrent ? ' dungeon-scores-hero-current' : ''}">
           <div class="dungeon-scores-hero-name" style="color: ${heroColor};">${escapeHtml(section.hero)}</div>
           ${optimizerHtml}
           <div class="dungeon-scores-list">${rows}</div>
         </div>
-      `;
-    }).join('');
+      `);
+    });
+
+    // Only one hero's key levels show at a time; a tab bar switches between
+    // them so the panel stays compact instead of stacking every character down
+    // the left edge. Active hero = the user's pinned selection when it still
+    // has scores, otherwise the current run's hero, otherwise the first.
+    const heroNames = heroSections.map((section) => section.hero);
+    const activeHero = (selectedHero && heroNames.includes(selectedHero))
+      ? selectedHero
+      : (currentHero && heroNames.includes(currentHero))
+        ? currentHero
+        : heroNames[0];
+
+    const tabs = heroSections.length > 1
+      ? `<div class="dungeon-scores-tabs">${heroSections.map((section) => {
+          const tabColor = HERO_COLORS[section.hero] || '#9ca3af';
+          const isActive = section.hero === activeHero;
+          const classes = ['dungeon-scores-tab'];
+          if (isActive) classes.push('dungeon-scores-tab-active');
+          if (section.isCurrent) classes.push('dungeon-scores-tab-current');
+          const style = isActive
+            ? `style="color: ${tabColor}; border-color: ${tabColor};"`
+            : `style="color: ${tabColor};"`;
+          return `<button type="button" class="${classes.join(' ')}" data-hero="${escapeHtml(section.hero)}" ${style}>${escapeHtml(section.hero)}</button>`;
+        }).join('')}</div>`
+      : '';
 
     dungeonScoresPanelEl.innerHTML = `
       ${header}
-      ${sections}
+      ${tabs}
+      ${sectionHtmlByHero.get(activeHero) || ''}
     `;
+
+    dungeonScoresPanelEl.querySelectorAll<HTMLButtonElement>('.dungeon-scores-tab').forEach((tab) => {
+      tab.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const hero = tab.dataset.hero;
+        if (hero) onSelectHero(hero);
+      });
+    });
+
     updateDungeonScoresPanelVisibility();
   }
 
