@@ -1,6 +1,7 @@
-import type { FinalizedEncounter, FinalizedState, ParserState } from '../../types/overlay';
+import type { CastPriority, CastTarget, CurrentPullNpc, FinalizedEncounter, FinalizedState, NpcCastRecord, NpcCastTrack, ParserState, PullCast, PullCastMob } from '../../types/overlay';
 
 import { buildCurrentPullSummary } from './parser-dungeon';
+import { getCastsForMob } from './cast-catalog';
 import { computeRelicCooldownState } from './parser-relics';
 import { parseTs } from './parser-line-utils';
 import {
@@ -10,6 +11,72 @@ import {
   serializeAbilityStat,
   sortAbilities,
 } from './parser-state';
+
+const CAST_PRIORITY_RANK: Record<CastPriority, number> = { stop: 0, mechanic: 1, ignore: 2, review: 3 };
+
+function castTargetSeverity(target: CastTarget): number {
+  if (target === 'group') return 0;
+  if (target === 'random') return 1;
+  if (target === 'self') return 2;
+  return 3;
+}
+
+// Across all live instances of a mob type, pick the most-relevant live status
+// for an ability: an active cast wins, otherwise the most recently resolved.
+function mergeLiveCast(tracks: NpcCastTrack[], abilityId: number): NpcCastRecord | null {
+  let best: NpcCastRecord | null = null;
+  for (const track of tracks) {
+    const record = track.casts.get(abilityId);
+    if (!record) continue;
+    if (record.status === 'casting') return record;
+    if (!best) best = record;
+    else if ((Date.parse(record.lastResolvedAt || '') || 0) > (Date.parse(best.lastResolvedAt || '') || 0)) best = record;
+  }
+  return best;
+}
+
+// Build the ranked cast-alert view: alive caster-mobs in the pull (deduped by
+// name), each with its dangerous casts and live status, filtered to stop/mechanic.
+function buildPullCasts(state: ParserState, mobs: CurrentPullNpc[]): PullCastMob[] {
+  const groups = new Map<string, { name: string; tracks: NpcCastTrack[]; count: number }>();
+  for (const mob of mobs) {
+    if (mob.alive === false) continue;
+    const name = mob.name || '';
+    if (!getCastsForMob(name).length) continue;
+    const key = name.toLowerCase();
+    let group = groups.get(key);
+    if (!group) { group = { name, tracks: [], count: 0 }; groups.set(key, group); }
+    group.count += 1;
+    const track = state.pullCasts.get(mob.unitId);
+    if (track) group.tracks.push(track);
+  }
+
+  const result: PullCastMob[] = [];
+  for (const group of groups.values()) {
+    const casts: PullCast[] = getCastsForMob(group.name)
+      .filter((entry) => entry.priority === 'stop' || entry.priority === 'mechanic')
+      .map((entry) => {
+        const live = mergeLiveCast(group.tracks, entry.abilityId);
+        return {
+          abilityId: entry.abilityId,
+          ability: entry.ability,
+          priority: entry.priority,
+          target: entry.target,
+          affixOnly: entry.affixOnly,
+          interruptType: entry.interruptType,
+          important: entry.important,
+          status: live?.status ?? 'available',
+          lastResolvedAt: live?.lastResolvedAt ?? null,
+        };
+      })
+      .sort((a, b) => (CAST_PRIORITY_RANK[a.priority] - CAST_PRIORITY_RANK[b.priority]) || (castTargetSeverity(a.target) - castTargetSeverity(b.target)) || a.ability.localeCompare(b.ability));
+    if (!casts.length) continue;
+    result.push({ unitId: group.name.toLowerCase(), mobName: group.name, instances: group.count, topPriority: casts[0].priority, casts });
+  }
+
+  result.sort((a, b) => (CAST_PRIORITY_RANK[a.topPriority] - CAST_PRIORITY_RANK[b.topPriority]) || (castTargetSeverity(a.casts[0].target) - castTargetSeverity(b.casts[0].target)) || a.mobName.localeCompare(b.mobName));
+  return result;
+}
 
 function shouldHidePlayersUntilPartyResolved(state: ParserState): boolean {
   const hasDungeonStart = !!state?.dungeon?.startedAt;
@@ -122,6 +189,8 @@ function finalizeState(state: ParserState): FinalizedState {
     partyPlayerIds: [...state.dungeonPartyIds],
     encounters,
     npcDeaths: state.npcDeaths,
+    playerDeaths: state.playerDeaths,
+    pullCasts: buildPullCasts(state, buildCurrentPullSummary(state).mobs),
     currentPull: buildCurrentPullSummary(state),
     counters: Object.fromEntries(state.rawCounters),
   };

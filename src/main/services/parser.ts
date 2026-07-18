@@ -1,4 +1,5 @@
-import type { FinalizedState, NpcDeathEntry, ParserState } from '../../types/overlay';
+import type { FinalizedState, NpcCastRecord, NpcCastTrack, NpcDeathEntry, ParserState, PlayerDeathEntry, RecentDamageHit } from '../../types/overlay';
+import { getCastByAbilityId } from './cast-catalog';
 import type { ParserCacheEntry } from '../../types/main-process';
 
 import * as fs from 'fs';
@@ -51,6 +52,60 @@ import { loadDungeonData } from './game-database';
 const MAX_STORED_ENCOUNTERS = 2;
 const MAX_STORED_NPC_DEATHS = 400;
 const MAX_STORED_ENCOUNTER_NPC_DEATHS = 200;
+const MAX_STORED_PLAYER_DEATHS = 100;
+const DAMAGE_WINDOW_MS = 3000;
+const MAX_RECENT_HITS = 60;
+const RECENT_HIT_TTL_MS = 8000;
+
+// Track dangerous NPC casts per mob instance for the cast-alert overlay.
+function recordNpcCast(state: ParserState, unitId: string, mobName: string, abilityId: number, event: string, ts: string): void {
+  let track: NpcCastTrack | undefined = state.pullCasts.get(unitId);
+  if (!track) { track = { mobName: mobName || '', casts: new Map() }; state.pullCasts.set(unitId, track); }
+  if (mobName) track.mobName = mobName;
+  let record: NpcCastRecord | undefined = track.casts.get(abilityId);
+  if (!record) { record = { lastStartAt: null, lastResolvedAt: null, status: 'available' }; track.casts.set(abilityId, record); }
+  if (event === 'ABILITY_CAST_START' || event === 'ABILITY_CHANNEL_START') { record.lastStartAt = ts; record.status = 'casting'; }
+  else if (event === 'ABILITY_CAST_SUCCESS' || event === 'ABILITY_CHANNEL_SUCCESS') { record.lastResolvedAt = ts; record.status = 'justCast'; }
+  else if (event === 'ABILITY_CAST_FAIL' || event === 'ABILITY_CHANNEL_FAIL') { record.lastResolvedAt = ts; record.status = 'interrupted'; }
+}
+
+// Rolling per-player damage-taken buffer, used to classify a death as a
+// one-shot (single big hit) vs. trickle (many small hits) vs. burst.
+function recordDamageTaken(state: ParserState, playerId: string, ts: string, amount: number, maxHp: number, abilityId: number | null): void {
+  if (!(amount > 0)) return;
+  const tsMs = Date.parse(ts);
+  let list = state.recentDamageByPlayer.get(playerId);
+  if (!list) { list = []; state.recentDamageByPlayer.set(playerId, list); }
+  list.push({ tsMs, amount, maxHp: maxHp > 0 ? maxHp : 0, abilityId });
+  const cutoff = tsMs - RECENT_HIT_TTL_MS;
+  while (list.length && (list.length > MAX_RECENT_HITS || list[0].tsMs < cutoff)) list.shift();
+}
+
+function classifyPlayerDeath(state: ParserState, playerId: string, ts: string, killingAbilityId: number | null): Pick<PlayerDeathEntry, 'category' | 'fatalFraction' | 'hitCount'> {
+  const list = state.recentDamageByPlayer.get(playerId) || [];
+  const deathMs = Date.parse(ts);
+  const windowHits = list.filter((hit) => hit.tsMs >= deathMs - DAMAGE_WINDOW_MS);
+  if (!windowHits.length) return { category: null, fatalFraction: null, hitCount: 0 };
+  let fatal: RecentDamageHit | null = null;
+  for (let i = windowHits.length - 1; i >= 0; i -= 1) {
+    if (killingAbilityId != null && windowHits[i].abilityId === killingAbilityId) { fatal = windowHits[i]; break; }
+  }
+  if (!fatal) fatal = windowHits[windowHits.length - 1];
+  const hitCount = windowHits.length;
+  const maxHp = fatal.maxHp || Math.max(0, ...windowHits.map((hit) => hit.maxHp));
+  const fatalFraction = maxHp > 0 ? Math.min(1, fatal.amount / maxHp) : null;
+  let category: PlayerDeathEntry['category'];
+  if (fatalFraction != null) {
+    if (fatalFraction >= 0.5) category = 'oneshot';
+    else if (hitCount >= 4 && fatalFraction < 0.25) category = 'trickle';
+    else category = 'burst';
+  } else {
+    const sum = windowHits.reduce((acc, hit) => acc + hit.amount, 0);
+    const share = sum > 0 ? fatal.amount / sum : 0;
+    category = share >= 0.8 && hitCount <= 2 ? 'oneshot' : hitCount >= 4 ? 'trickle' : 'burst';
+  }
+  return { category, fatalFraction, hitCount };
+}
 const NPC_UNDERFLOW_FALLBACK_MS = 1500;
 // The cache now persists across parses (one long-lived worker), so cap how many
 // log files it retains to avoid unbounded memory growth when logs rotate.
@@ -404,6 +459,9 @@ function processLine(state: ParserState, line: string): void {
           markNpcChickenized(state, ts, targetId, targetName);
         }
       }
+      if (isNpcId(sourceId) && getCastByAbilityId(abilityId)) {
+        recordNpcCast(state, sourceId, sourceName, abilityId, event, ts);
+      }
       updateSpiritFromResourcePart(state, sourceId, sourceName, ts, parts[15], abilityId, abilityName);
       break;
     }
@@ -445,6 +503,7 @@ function processLine(state: ParserState, line: string): void {
       if (isPlayerId(targetId)) {
         const player = ensurePlayer(state, targetId, targetName);
         player.damageTaken += amount;
+        recordDamageTaken(state, targetId, ts, amount, toNumber(parts[24]), abilityId);
       }
       updateSpiritFromResourcePart(state, targetId, targetName, ts, parts[29], abilityId, abilityName);
       break;
@@ -488,6 +547,44 @@ function processLine(state: ParserState, line: string): void {
       }
       updateSpiritFromRisingSpiritEffect(state, event, targetId, targetName, ts, abilityId, abilityName, parts[9]);
       updateSpiritFromResourcePart(state, targetId, targetName, ts, parts[17], abilityId, abilityName);
+      break;
+    }
+    case 'ALLY_DEATH': {
+      const deadId = parts[2];
+      const deadName = String(unquote(parts[3]) || '');
+      if (!isPlayerId(deadId)) break;
+      const killingAbilityIdVal = toNumber(parts[6]);
+      const classification = classifyPlayerDeath(state, deadId, ts, killingAbilityIdVal);
+      const entry: PlayerDeathEntry = {
+        ts,
+        playerId: deadId,
+        playerName: deadName || null,
+        killerId: parts[4] || null,
+        killerName: String(unquote(parts[5]) || '') || null,
+        killingAbilityId: killingAbilityIdVal,
+        killingAbility: String(unquote(parts[7]) || '') || null,
+        encounterName: state.currentEncounter?.name ?? null,
+        category: classification.category,
+        fatalFraction: classification.fatalFraction,
+        hitCount: classification.hitCount,
+        revived: false,
+      };
+      state.playerDeaths.push(entry);
+      if (state.playerDeaths.length > MAX_STORED_PLAYER_DEATHS) {
+        state.playerDeaths.splice(0, state.playerDeaths.length - MAX_STORED_PLAYER_DEATHS);
+      }
+      ensurePlayer(state, deadId, deadName).deaths += 1;
+      break;
+    }
+    case 'RESURRECT': {
+      const revivedId = parts[4];
+      if (!isPlayerId(revivedId)) break;
+      for (let i = state.playerDeaths.length - 1; i >= 0; i -= 1) {
+        if (state.playerDeaths[i].playerId === revivedId && !state.playerDeaths[i].revived) {
+          state.playerDeaths[i].revived = true;
+          break;
+        }
+      }
       break;
     }
     case 'UNIT_DEATH':

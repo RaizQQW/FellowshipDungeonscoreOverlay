@@ -1,0 +1,3802 @@
+{
+  "source": "reconciled: example_logs (ability IDs + counts) x method.gg guides (priority/target/affix)",
+  "generated": "2026-07-14",
+  "legend": {
+    "stop": "interrupt — dangerous",
+    "mechanic": "dodge/soak/dispel — positioning not kick",
+    "ignore": "tank damage / bolt",
+    "review": "seen in logs, unclassified by guide"
+  },
+  "casts": [
+    {
+      "abilityId": 2042,
+      "ability": "Frenzy",
+      "mob": "Heskyr Zealot",
+      "logCount": 176,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Heskyr Zealot",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 1667,
+      "ability": "Necrotic Bolt",
+      "mob": "Deepbound Magi",
+      "logCount": 134,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Deepbound Magi",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 630,
+      "ability": "Charged Bolt",
+      "mob": "Warlord Brogg",
+      "logCount": 103,
+      "isBolt": true,
+      "redditMatch": "Charged Bolt",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Warlord Brogg",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Stormwatch"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 734,
+      "ability": "Shattering Barrier",
+      "mob": "Eldrin Sentinel",
+      "logCount": 91,
+      "isBolt": false,
+      "redditMatch": "Shattering Barrier",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Eldrin Sentinel",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 1642,
+      "ability": "Searing Beam",
+      "mob": "Godfall Wardstone",
+      "logCount": 65,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Godfall Wardstone",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 616,
+      "ability": "Ball Lightning",
+      "mob": "Stormscreamer",
+      "logCount": 60,
+      "isBolt": false,
+      "redditMatch": "Ball Lightning",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Stormscreamer",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Stormwatch"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 636,
+      "ability": "Dread Arc",
+      "mob": "Warlord Brogg",
+      "logCount": 50,
+      "isBolt": false,
+      "redditMatch": "Dread Arc",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Warlord Brogg",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Stormwatch"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 218,
+      "ability": "Icy Annihilation",
+      "mob": "Coldbrine Fiend",
+      "logCount": 46,
+      "isBolt": false,
+      "redditMatch": "Icy Annihilation",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Coldbrine Fiend",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 202,
+      "ability": "Big Oogha Flame",
+      "mob": "Ashen Arsonist",
+      "logCount": 45,
+      "isBolt": false,
+      "redditMatch": "Big Oogha Flame",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Ashen Arsonist",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 829,
+      "ability": "Restore Vitality",
+      "mob": "Hellcaller",
+      "logCount": 40,
+      "isBolt": false,
+      "redditMatch": "Restore Vitality",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Hellcaller",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 904,
+      "ability": "Psionic Horror",
+      "mob": "Arcane Warden",
+      "logCount": 31,
+      "isBolt": false,
+      "redditMatch": "Psionic Horror",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Arcane Warden",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 527,
+      "ability": "Sunken Gale",
+      "mob": "Tide Witch",
+      "logCount": 29,
+      "isBolt": false,
+      "redditMatch": "Sunken Gale",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Tide Witch",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 51,
+      "ability": "Anguish Unleashed",
+      "mob": "Tormented Spectre",
+      "logCount": 28,
+      "isBolt": false,
+      "redditMatch": "Anguish Unleashed",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Tormented Spectre",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 563,
+      "ability": "Blunder Boom",
+      "mob": "Scuttlejack Cannoneer",
+      "logCount": 28,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Scuttlejack Cannoneer",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 481,
+      "ability": "Hydrobolt",
+      "mob": "Water Elemental",
+      "logCount": 28,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Water Elemental",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 602,
+      "ability": "Soulpowder Shot",
+      "mob": "Soulpowder Buccaneer",
+      "logCount": 26,
+      "isBolt": false,
+      "redditMatch": "Soulpowder Shot",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Soulpowder Buccaneer",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 833,
+      "ability": "Wither",
+      "mob": "Profane Invoker",
+      "logCount": 24,
+      "isBolt": false,
+      "redditMatch": "Wither",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Profane Invoker",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 206,
+      "ability": "Frostbitten Strength",
+      "mob": "Icebite Reaver",
+      "logCount": 22,
+      "isBolt": false,
+      "redditMatch": "Frostbitten Strength",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Icebite Reaver",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 626,
+      "ability": "Together Stronk!",
+      "mob": "Bully Basher",
+      "logCount": 22,
+      "isBolt": false,
+      "redditMatch": "Together Stronk",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Bully Basher",
+        "target": "self",
+        "affixOnly": true,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 608,
+      "ability": "Vermin Tide",
+      "mob": "Bilgerat",
+      "logCount": 22,
+      "isBolt": false,
+      "redditMatch": "Vermin Tide",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Bilgerat",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 496,
+      "ability": "Call of the Abyss",
+      "mob": "Deepbound Magi",
+      "logCount": 21,
+      "isBolt": false,
+      "redditMatch": "Call of the Abyss",
+      "logPriority": "stop",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "stop"
+    },
+    {
+      "abilityId": 1618,
+      "ability": "Sinnari's Wrath",
+      "mob": "Acolyte of Sinnari",
+      "logCount": 20,
+      "isBolt": false,
+      "redditMatch": "Sinnari's Wrath",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Acolyte of Sinnari",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 469,
+      "ability": "Kidnap",
+      "mob": "Gravesnare Kidnapper",
+      "logCount": 17,
+      "isBolt": false,
+      "redditMatch": "Kidnap",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Gravesnare Kidnapper",
+        "target": "random",
+        "affixOnly": true,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 744,
+      "ability": "Drain Life",
+      "mob": "Corrupter",
+      "logCount": 17,
+      "isBolt": false,
+      "redditMatch": "Drain Life",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Corrupter",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 280,
+      "ability": "Invigorate",
+      "mob": "Bleakfrost Mystic",
+      "logCount": 17,
+      "isBolt": false,
+      "redditMatch": "Invigorate",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Bleakfrost Mystic",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 776,
+      "ability": "Shadow Bolt",
+      "mob": "Nightbound Magi",
+      "logCount": 17,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Nightbound Magi",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 828,
+      "ability": "Demonic Lash",
+      "mob": "Hellcaller",
+      "logCount": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Hellcaller",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 480,
+      "ability": "Healing Waters",
+      "mob": "Water Elemental",
+      "logCount": 10,
+      "isBolt": false,
+      "redditMatch": "Healing Waters",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Water Elemental",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 909,
+      "ability": "Bolt Barrage",
+      "mob": "Nezari Bolter",
+      "logCount": 10,
+      "isBolt": true,
+      "redditMatch": "Bolt Barrage",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Nezari Bolter",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 265,
+      "ability": "Silence",
+      "mob": "Nightmist Whisperer",
+      "logCount": 7,
+      "isBolt": false,
+      "redditMatch": "Silence",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Nightmist Whisperer",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 234,
+      "ability": "Blinding Fear",
+      "mob": "Nightmist Whisperer",
+      "logCount": 7,
+      "isBolt": false,
+      "redditMatch": "Blinding Fear",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Nightmist Whisperer",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 64,
+      "ability": "Temporal Manipulation",
+      "mob": "Eldrin Chronomancer",
+      "logCount": 7,
+      "isBolt": false,
+      "redditMatch": "Temporal Manipulation",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Eldrin Chronomancer",
+        "target": "self",
+        "affixOnly": true,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Wyrmheart"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 665,
+      "ability": "Blighted Ichor",
+      "mob": "Blighted Dawnbloom",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Blighted Dawnbloom",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "stop",
+      "agree": false
+    },
+    {
+      "abilityId": 560,
+      "ability": "Mindrender Barrage",
+      "mob": "Greedbound Prism",
+      "logCount": 3,
+      "isBolt": false,
+      "redditMatch": "Mindrender Barrage",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Greedbound Prism",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "stop",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "stop",
+      "agree": true
+    },
+    {
+      "abilityId": 2192,
+      "ability": "Twisting Slice",
+      "mob": "Heskyr Zealot",
+      "logCount": 406,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Heskyr Zealot",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 52,
+      "ability": "Curse of Drowning",
+      "mob": "Vengeful Shade",
+      "logCount": 138,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vengeful Shade",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dispel",
+        "priority": "mechanic",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 724,
+      "ability": "Rapid Fire",
+      "mob": "Tundra Stalker",
+      "logCount": 126,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Tundra Stalker",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 292,
+      "ability": "Bloodlash Wake",
+      "mob": "Urrak Slaver",
+      "logCount": 118,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Urrak Slaver",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 737,
+      "ability": "Slicing Blades",
+      "mob": "Blade of Cithrel",
+      "logCount": 100,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Blade of Cithrel",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 794,
+      "ability": "Soulpiercer",
+      "mob": "Dunesnare Hunter",
+      "logCount": 86,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Dunesnare Hunter",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 738,
+      "ability": "Ice Breaker",
+      "mob": "Blade of Cithrel",
+      "logCount": 86,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Blade of Cithrel",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1645,
+      "ability": "Razorlace Web",
+      "mob": "Gravesnare Kidnapper",
+      "logCount": 81,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Gravesnare Kidnapper",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 203,
+      "ability": "Flame Blast",
+      "mob": "Ashen Arsonist",
+      "logCount": 80,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Ashen Arsonist",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 780,
+      "ability": "Charge",
+      "mob": "Tombguard Reaver",
+      "logCount": 64,
+      "isBolt": false,
+      "redditMatch": "Charged Bolt",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Tombguard Reaver",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "mechanic",
+      "agree": false
+    },
+    {
+      "abilityId": 514,
+      "ability": "Undertow",
+      "mob": "Sinthara",
+      "logCount": 59,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sinthara",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dispel",
+        "priority": "mechanic",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 85,
+      "ability": "Sweeping Hook",
+      "mob": "Task Master",
+      "logCount": 57,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Task Master",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 311,
+      "ability": "Conjure Scythe",
+      "mob": "Drazhul the Fleshbroker",
+      "logCount": 56,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Drazhul the Fleshbroker",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 747,
+      "ability": "Cold-blooded Twist",
+      "mob": "Noor, The Betrayer",
+      "logCount": 50,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Noor, the Betrayer",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 460,
+      "ability": "Penumbra",
+      "mob": "Sin-Magir",
+      "logCount": 48,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sin-Magir",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 830,
+      "ability": "Armaggedon",
+      "mob": "Hellcaller",
+      "logCount": 48,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Hellcaller",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 470,
+      "ability": "Venom Spray",
+      "mob": "Vexira, Mother of Nightmares",
+      "logCount": 42,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vexira, Mother of Nightmares",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 2094,
+      "ability": "Crimson Crucifix",
+      "mob": "Overlord Varux",
+      "logCount": 38,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Overlord Varux",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Scryer's Peak"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1640,
+      "ability": "Corrupting Shot",
+      "mob": "Malgut the Fetid",
+      "logCount": 37,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Malgut the Fetid",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dispel",
+        "priority": "mechanic",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 647,
+      "ability": "Earthcore Upheaval",
+      "mob": "Bloodstone Goliath",
+      "logCount": 31,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Bloodstone Goliath",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1634,
+      "ability": "Forked Lightning",
+      "mob": "Warlord Brogg",
+      "logCount": 29,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Warlord Brogg",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Stormwatch"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 785,
+      "ability": "Crescent Cleave",
+      "mob": "Gravebreaker Brute",
+      "logCount": 29,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Gravebreaker Brute",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 657,
+      "ability": "Crystal Volley",
+      "mob": "Malgut the Fetid",
+      "logCount": 27,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Malgut the Fetid",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 252,
+      "ability": "Blazing Slam",
+      "mob": "Fodir Kaldur",
+      "logCount": 26,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Fodir Kaldur",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1449,
+      "ability": "Grasping Vines",
+      "mob": "Urrak Witch",
+      "logCount": 25,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Urrak Witch",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 863,
+      "ability": "Siphon Blood",
+      "mob": "Moar'gore, Master of Sacrifice",
+      "logCount": 22,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Moar'gore, Master of Sacrifice",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 205,
+      "ability": "Glacial Sunder",
+      "mob": "Icebite Reaver",
+      "logCount": 22,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Icebite Reaver",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1450,
+      "ability": "Titanic Slam",
+      "mob": "Godfall Titan",
+      "logCount": 21,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Godfall Titan",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 702,
+      "ability": "Frozen Stomp",
+      "mob": "Greater Ice Elemental",
+      "logCount": 20,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Greater Ice Elemental",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Wyrmheart"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 235,
+      "ability": "Revelation",
+      "mob": "Auga Handhafi the Blind",
+      "logCount": 20,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Auga Handhafi the Blind",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1440,
+      "ability": "Wildroot Thorns",
+      "mob": "Slavetrader Brull",
+      "logCount": 18,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Slavetrader Brull",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 629,
+      "ability": "Perfect Storm",
+      "mob": "Warlord Brogg",
+      "logCount": 17,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Warlord Brogg",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Stormwatch"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1454,
+      "ability": "Mana Bomb",
+      "mob": "Vaerith Vorn",
+      "logCount": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vaerith Vorn",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 703,
+      "ability": "Avalanche",
+      "mob": "Greater Ice Elemental",
+      "logCount": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Greater Ice Elemental",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Scryer's Peak"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 507,
+      "ability": "Necrotic Wave",
+      "mob": "Sinthara",
+      "logCount": 15,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sinthara",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 662,
+      "ability": "Umbral Eruption",
+      "mob": "Malgut the Fetid",
+      "logCount": 15,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Malgut the Fetid",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 248,
+      "ability": "Blazing Slam",
+      "mob": "Kaldurson Eldsupptok",
+      "logCount": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Kaldurson Eldsupptok",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 2086,
+      "ability": "Glacial Slam",
+      "mob": "Glacial Bear",
+      "logCount": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Chilgar the Drowned",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 781,
+      "ability": "Whirlwind",
+      "mob": "Tombguard Reaver",
+      "logCount": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Tombguard Reaver",
+        "target": "group",
+        "affixOnly": true,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 313,
+      "ability": "Vortex",
+      "mob": "Drazhul the Fleshbroker",
+      "logCount": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Drazhul the Fleshbroker",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 764,
+      "ability": "Path to Oblivion",
+      "mob": "Cithrel",
+      "logCount": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Cithrel",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 879,
+      "ability": "Dark Malice",
+      "mob": "Prophet Ez'rath",
+      "logCount": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Prophet Ez'rath",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 2124,
+      "ability": "Annihilation Protocol",
+      "mob": "Han-Eth, Sentry of Xul",
+      "logCount": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Han-eth, Sentry Of Xul",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 576,
+      "ability": "Erupting Envy",
+      "mob": "Bael'Aurum",
+      "logCount": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Bael'Aurum",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 2028,
+      "ability": "Gatekeeper's Judgment",
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "logCount": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Xul'vorith, Sentinel of the Bloodbound Gate",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1835,
+      "ability": "Icebreaker",
+      "mob": "Ghorn the Avalanche",
+      "logCount": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Blade of Cithrel",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 582,
+      "ability": "Soulpowder Cyclone",
+      "mob": "Deathless Katrine",
+      "logCount": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Deathless Katrine",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 228,
+      "ability": "Freezing Flood",
+      "mob": "Chilgar the Drowned",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Chilgar the Drowned",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1423,
+      "ability": "Grasping Pillar",
+      "mob": "Chilgar the Drowned",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Chilgar the Drowned",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 756,
+      "ability": "Shatterstrike",
+      "mob": "Ancient Koros",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Ancient Koros",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 2121,
+      "ability": "Summon Creations",
+      "mob": "Han-Eth, Sentry of Xul",
+      "logCount": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Han-eth, Sentry Of Xul",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 710,
+      "ability": "Howling Blast",
+      "mob": "Apostate Veras",
+      "logCount": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Apostate Veras",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Wyrmheart"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 864,
+      "ability": "Sacrificial Pyre",
+      "mob": "Moar'gore, Master of Sacrifice",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Moar'gore, Master of Sacrifice",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 66,
+      "ability": "Coldheart Poison",
+      "mob": "Coldheart Assassin",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Coldheart Assassin",
+        "target": "random",
+        "affixOnly": true,
+        "verdict": "dispel",
+        "priority": "mechanic",
+        "dungeon": "Wyrmheart"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1766,
+      "ability": "No Quarters!",
+      "mob": "Deathless Katrine",
+      "logCount": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Deathless Katrine",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "soak",
+        "priority": "mechanic",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 1641,
+      "ability": "Decimate",
+      "mob": "Gravebreaker Brute",
+      "logCount": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Gravebreaker Brute",
+        "target": "group",
+        "affixOnly": true,
+        "verdict": "dodge",
+        "priority": "mechanic",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "mechanic",
+      "agree": true
+    },
+    {
+      "abilityId": 2126,
+      "ability": "Eradication",
+      "mob": "Vessel of Vel'korath",
+      "logCount": 400,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 622,
+      "ability": "Throw Knife",
+      "mob": "Facestabber",
+      "logCount": 302,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Facestabber",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 26,
+      "ability": "Bola Throw",
+      "mob": "Outrunner",
+      "logCount": 250,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Outrunner",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 641,
+      "ability": "Bash",
+      "mob": "Mangy Brute",
+      "logCount": 236,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Mangy Brute",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2127,
+      "ability": "Gorging Pool",
+      "mob": "Vessel of Vel'korath",
+      "logCount": 152,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2084,
+      "ability": "Backstab",
+      "mob": "Nightmist Cutthroat",
+      "logCount": 144,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Nightmist Cutthroat",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2163,
+      "ability": "Obliterate Life",
+      "mob": "Undying Champion",
+      "logCount": 118,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2111,
+      "ability": "Exsanguinating Strike",
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "logCount": 114,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Xul'vorith, Sentinel of the Bloodbound Gate",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 455,
+      "ability": "Darkstar Ruin",
+      "mob": "Ruinous Star",
+      "logCount": 107,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sin-Magir",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2088,
+      "ability": "Hunt Prey",
+      "mob": "Dire Wolf",
+      "logCount": 101,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1903,
+      "ability": "Detonate",
+      "mob": "Anomalous Orb",
+      "logCount": 91,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1953,
+      "ability": "Shackle Chuck",
+      "mob": "Bleakfrost Slaver",
+      "logCount": 82,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 624,
+      "ability": "Bully Bash",
+      "mob": "Bully Basher",
+      "logCount": 79,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 296,
+      "ability": "Orb of Blood",
+      "mob": "Horned Seer",
+      "logCount": 78,
+      "isBolt": false,
+      "redditMatch": "Orb of Blood",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Horned Seer",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "review",
+      "agree": false
+    },
+    {
+      "abilityId": 1954,
+      "ability": "Shackle Chuck",
+      "mob": "Urrak Slaver",
+      "logCount": 75,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2107,
+      "ability": "Pulverize",
+      "mob": "Sanguine Crusher",
+      "logCount": 75,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sanguine Crusher",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 577,
+      "ability": "Temptation",
+      "mob": "Bael'Aurum",
+      "logCount": 71,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Bael'Aurum",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 271,
+      "ability": "Devouring Darkness",
+      "mob": "Nightmist Fiend",
+      "logCount": 65,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1519,
+      "ability": "Furious Tantrum",
+      "mob": "Gorestained Butcher",
+      "logCount": 58,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Gorestained Butcher",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1456,
+      "ability": "Arcane Burst",
+      "mob": "Godfall Titan",
+      "logCount": 58,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 913,
+      "ability": "Throw Stone",
+      "mob": "Dredge",
+      "logCount": 54,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Dredge",
+        "target": "tank",
+        "affixOnly": true,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1653,
+      "ability": "Corruption",
+      "mob": "Bloodstone Totem",
+      "logCount": 53,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2039,
+      "ability": "Piercing Howl",
+      "mob": "Stalking Grim",
+      "logCount": 51,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Stalking Grim",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 512,
+      "ability": "Deafening Screech",
+      "mob": "Sinthara",
+      "logCount": 48,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sinthara",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2091,
+      "ability": "Sanguine Brand",
+      "mob": "Overlord Varux",
+      "logCount": 47,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2109,
+      "ability": "Sunder Earth",
+      "mob": "Sanguine Crusher",
+      "logCount": 44,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sanguine Crusher",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 232,
+      "ability": "Devouring Darkness",
+      "mob": "Nightmist Fiend",
+      "logCount": 40,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1520,
+      "ability": "Furious Tantrum",
+      "mob": "Drazhul the Fleshbroker",
+      "logCount": 35,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Drazhul the Fleshbroker",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 458,
+      "ability": "Lunar Soulsear",
+      "mob": "Sin-Magir",
+      "logCount": 33,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sin-Magir",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1529,
+      "ability": "Shatter",
+      "mob": "Enraged Earth Elemental",
+      "logCount": 31,
+      "isBolt": false,
+      "redditMatch": "Shattering Barrier",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Enraged Earth Elemental",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "review",
+      "agree": false
+    },
+    {
+      "abilityId": 2093,
+      "ability": "Blood Link",
+      "mob": "Overlord Varux",
+      "logCount": 31,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Overlord Varux",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Scryer's Peak"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 59,
+      "ability": "Grip",
+      "mob": "Mancatcher",
+      "logCount": 31,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Mancatcher",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2110,
+      "ability": "Nullification",
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "logCount": 30,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Xul'vorith, Sentinel of the Bloodbound Gate",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2174,
+      "ability": "Crushing Darkness",
+      "mob": "Xurath, Fist of the Warden",
+      "logCount": 29,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1831,
+      "ability": "Crushing Blows",
+      "mob": "Ghorn the Giant",
+      "logCount": 28,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2178,
+      "ability": "Seek and Destroy",
+      "mob": "Xurath, Fist of the Warden",
+      "logCount": 24,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2150,
+      "ability": "Perish Pulse",
+      "mob": "Crimson Abomination",
+      "logCount": 24,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 652,
+      "ability": "Panicked Charge",
+      "mob": "Akari the Everdawn Lord",
+      "logCount": 24,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 2134,
+      "ability": "Repent",
+      "mob": "Vel’korath the Sanctified, Vision of the Covenant",
+      "logCount": 23,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vel'korath the Sanctified, Vision of the Covenant",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2148,
+      "ability": "Bursting Blood",
+      "mob": "Clot Spawn",
+      "logCount": 23,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 472,
+      "ability": "Fang Strike",
+      "mob": "Vexira, Mother of Nightmares",
+      "logCount": 21,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vexira, Mother of Nightmares",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2092,
+      "ability": "Grim Rush",
+      "mob": "Overlord Varux",
+      "logCount": 21,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1544,
+      "ability": "Jungle Rot",
+      "mob": "Urrak Witch",
+      "logCount": 19,
+      "isBolt": false,
+      "redditMatch": "Jungle Rot",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Urrak Witch",
+        "target": "group",
+        "affixOnly": true,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "review",
+      "agree": false
+    },
+    {
+      "abilityId": 1830,
+      "ability": "Crushing Blows",
+      "mob": "Ghorn the Avalanche",
+      "logCount": 18,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 56,
+      "ability": "Dark Cleave",
+      "mob": "Gravescythe",
+      "logCount": 17,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Gravescythe",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 456,
+      "ability": "Ruinous Starfall",
+      "mob": "Sin-Magir",
+      "logCount": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sin-Magir",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Empyrean Sands"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 255,
+      "ability": "Frost Bite",
+      "mob": "Fodir Kaldur",
+      "logCount": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Fodir Kaldur",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 309,
+      "ability": "Creeping Death",
+      "mob": "Slavetrader Brull",
+      "logCount": 15,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Slavetrader Brull",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 763,
+      "ability": "Breath of Al'zerac",
+      "mob": "Cithrel",
+      "logCount": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Cithrel",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1405,
+      "ability": "Bursting Brood",
+      "mob": "Carrion Horror",
+      "logCount": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Carrion Horror",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 661,
+      "ability": "Godrot Eclipse",
+      "mob": "Malgut the Fetid",
+      "logCount": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Malgut the Fetid",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2160,
+      "ability": "Blood Boil",
+      "mob": "Heart of Rot",
+      "logCount": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Heart of Rot",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 599,
+      "ability": "Wavestomp",
+      "mob": "First Mate Marrow",
+      "logCount": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "First Mate Marrow",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2085,
+      "ability": "Arctic Wail",
+      "mob": "Glacial Bear",
+      "logCount": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 584,
+      "ability": "Quick Draw",
+      "mob": "Deathless Katrine",
+      "logCount": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Deathless Katrine",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2117,
+      "ability": "Gatekeeper's Edict",
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "logCount": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Xul'vorith, Sentinel of the Bloodbound Gate",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1396,
+      "ability": "Call Children",
+      "mob": "Vexira, Mother of Nightmares",
+      "logCount": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vexira, Mother of Nightmares",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1600,
+      "ability": "Mothers Milk",
+      "mob": "Vexira, Mother of Nightmares",
+      "logCount": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vexira, Mother of Nightmares",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 915,
+      "ability": "Piercing Strike",
+      "mob": "Enforcer",
+      "logCount": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Enforcer",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1819,
+      "ability": "Shattering Ice",
+      "mob": "Eira the White Witch",
+      "logCount": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 650,
+      "ability": "Bloodstone Erruption",
+      "mob": "Bloodstone Goliath",
+      "logCount": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 269,
+      "ability": "Dark Ritual",
+      "mob": "Shadow of Ulmorgat",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Shadow of Ulmorgat",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1834,
+      "ability": "Winter Cataclysm",
+      "mob": "Ghorn the Avalanche",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1599,
+      "ability": "Burning Aura",
+      "mob": "Fodir Kaldur",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Fodir Kaldur",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1597,
+      "ability": "Freezing Aura",
+      "mob": "Fodir Kaldur",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Fodir Kaldur",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 609,
+      "ability": "Crush Armor",
+      "mob": "Barbarous Lasher",
+      "logCount": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Barbarous Lasher",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 509,
+      "ability": "Siren's Song",
+      "mob": "Sinthara",
+      "logCount": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Sinthara",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Sailor's Abyss"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2043,
+      "ability": "Bloodwell Barrier",
+      "mob": "Heskyr Magus",
+      "logCount": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 237,
+      "ability": "Dark Ritual",
+      "mob": "Auga Handhafi the Blind",
+      "logCount": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Auga Handhafi the Blind",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2177,
+      "ability": "Unholy Hymn",
+      "mob": "Xurath, Fist of the Warden",
+      "logCount": 7,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 272,
+      "ability": "Shadow Slam",
+      "mob": "Shadow of Ulmorgat",
+      "logCount": 7,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Shadow of Ulmorgat",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 749,
+      "ability": "Arcane Volley",
+      "mob": "Noor, The Betrayer",
+      "logCount": 7,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Noor, the Betrayer",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1426,
+      "ability": "Ice Tomb",
+      "mob": "Fodir Kaldur",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Fodir Kaldur",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 598,
+      "ability": "High Tide",
+      "mob": "First Mate Marrow",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "First Mate Marrow",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1817,
+      "ability": "Rune of the White Witch",
+      "mob": "Eira the White Witch",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 575,
+      "ability": "Shadowgreed Eclipse",
+      "mob": "Bael'Aurum",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Bael'Aurum",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 571,
+      "ability": "Orb of Bael'Aurum",
+      "mob": "Bael'Aurum",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Bael'Aurum",
+        "target": "self",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 236,
+      "ability": "Abyssal Offering",
+      "mob": "Auga Handhafi the Blind",
+      "logCount": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Auga Handhafi the Blind",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1764,
+      "ability": "Fangroot Snap",
+      "mob": "Vun’Kahr, the Thorned Maw",
+      "logCount": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vun'Kahr, the Thorned Maw",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "info",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2130,
+      "ability": "Blood Sermon",
+      "mob": "Vel’korath the Sanctified, Vision of the Covenant",
+      "logCount": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Vel'korath the Sanctified, Vision of the Covenant",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2205,
+      "ability": "Searing Veins",
+      "mob": "Heskyr Magus",
+      "logCount": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 888,
+      "ability": "Rootslam",
+      "mob": "Twisted Root",
+      "logCount": 4,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 78,
+      "ability": "Wicked Hook",
+      "mob": "Prophet Ez'rath",
+      "logCount": 4,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Prophet Ez'rath",
+        "target": "random",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 2168,
+      "ability": "Ghastly Nova",
+      "mob": "Meandering Acolyte",
+      "logCount": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "review"
+    },
+    {
+      "abilityId": 1593,
+      "ability": "Freezing Aura",
+      "mob": "Kaldurson Isilagður",
+      "logCount": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Kaldurson Isilagður",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 1595,
+      "ability": "Burning Aura",
+      "mob": "Kaldurson Eldsupptok",
+      "logCount": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "logPriority": "review",
+      "method": {
+        "matched": true,
+        "mob": "Kaldurson Eldsupptok",
+        "target": "group",
+        "affixOnly": false,
+        "verdict": "info",
+        "priority": "info",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "review",
+      "agree": true
+    },
+    {
+      "abilityId": 832,
+      "ability": "Shadow Bolt",
+      "mob": "Profane Invoker",
+      "logCount": 331,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Profane Invoker",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "The Heart of Tuzari"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 308,
+      "ability": "Wild Bolt",
+      "mob": "Slavetrader Brull",
+      "logCount": 293,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Slavetrader Brull",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "tank",
+        "priority": "low",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 1406,
+      "ability": "Venom Bolt",
+      "mob": "Venomdrinker",
+      "logCount": 250,
+      "isBolt": true,
+      "redditMatch": "Venom Bolt",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Venom Drinker",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "ignore",
+      "agree": false
+    },
+    {
+      "abilityId": 1545,
+      "ability": "Pain Bolt",
+      "mob": "Horned Seer",
+      "logCount": 191,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Horned Seer",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Everdawn Grove"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 526,
+      "ability": "Dreadwater Bolt",
+      "mob": "Tide Witch",
+      "logCount": 175,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Tide Witch",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Wraithtide Vault"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 217,
+      "ability": "Brine Bolt",
+      "mob": "Coldbrine Fiend",
+      "logCount": 110,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Coldbrine Fiend",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 731,
+      "ability": "Arcane Strike",
+      "mob": "Deceitful Scholar",
+      "logCount": 102,
+      "isBolt": false,
+      "redditMatch": "Arcane Strike",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Deceitful Scholar",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "ignore",
+      "agree": false
+    },
+    {
+      "abilityId": 290,
+      "ability": "Mossfire Bolt",
+      "mob": "Urrak Witch",
+      "logCount": 98,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Urrak Witch",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Urrak Markets"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 2206,
+      "ability": "Malice Bolt",
+      "mob": "Heskyr Magus",
+      "logCount": 74,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "ignore"
+    },
+    {
+      "abilityId": 615,
+      "ability": "Crackling Bolt",
+      "mob": "Stormscreamer",
+      "logCount": 71,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Stormscreamer",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Stormwatch"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 741,
+      "ability": "Ice Bolt",
+      "mob": "Corrupter",
+      "logCount": 70,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Corrupter",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Cithrel's Fall"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 281,
+      "ability": "Frost Bolt",
+      "mob": "Bleakfrost Mystic",
+      "logCount": 69,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Bleakfrost Mystic",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 266,
+      "ability": "Shadow Bolt",
+      "mob": "Nightmist Whisperer",
+      "logCount": 62,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Nightmist Whisperer",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Ransack of Drakheim"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 1818,
+      "ability": "Winter Bolt",
+      "mob": "Eira the White Witch",
+      "logCount": 52,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "ignore"
+    },
+    {
+      "abilityId": 2166,
+      "ability": "Hollow Bolt",
+      "mob": "Meandering Acolyte",
+      "logCount": 39,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": false
+      },
+      "finalPriority": "ignore"
+    },
+    {
+      "abilityId": 2106,
+      "ability": "Blood Bolt",
+      "mob": "Sanguine Echo",
+      "logCount": 30,
+      "isBolt": true,
+      "redditMatch": null,
+      "logPriority": "ignore",
+      "method": {
+        "matched": true,
+        "mob": "Sanguine Echo",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Xul, The Blood Monolith"
+      },
+      "finalPriority": "ignore",
+      "agree": true
+    },
+    {
+      "abilityId": 713,
+      "ability": "Icy Death",
+      "mob": "Apostate Veras",
+      "logCount": 20,
+      "isBolt": false,
+      "redditMatch": "Icy Death",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Apostate Veras",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Wyrmheart"
+      },
+      "finalPriority": "ignore",
+      "agree": false
+    },
+    {
+      "abilityId": 1649,
+      "ability": "Poisonado",
+      "mob": "Venomdrinker",
+      "logCount": 15,
+      "isBolt": false,
+      "redditMatch": "Poisonado",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Venom Drinker",
+        "target": "tank",
+        "affixOnly": true,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Silken Hollow"
+      },
+      "finalPriority": "ignore",
+      "agree": false
+    },
+    {
+      "abilityId": 905,
+      "ability": "Torment",
+      "mob": "Arcane Warden",
+      "logCount": 14,
+      "isBolt": false,
+      "redditMatch": "Torment",
+      "logPriority": "stop",
+      "method": {
+        "matched": true,
+        "mob": "Arcane Warden",
+        "target": "tank",
+        "affixOnly": false,
+        "verdict": "interrupt",
+        "priority": "low",
+        "dungeon": "Godfall Quarry"
+      },
+      "finalPriority": "ignore",
+      "agree": false
+    }
+  ],
+  "methodStopNotInLogs": [
+    {
+      "dungeon": "Xul, The Blood Monolith",
+      "mob": "Sanguine Echo",
+      "ability": "Shake It Off",
+      "target": "group",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Xul, The Blood Monolith",
+      "mob": "Heart of Rot",
+      "ability": "Consume",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Xul, The Blood Monolith",
+      "mob": "Sanguine Disciple",
+      "ability": "Sanguine Ritual",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Xul, The Blood Monolith",
+      "mob": "Vel'korath the Sanctified, Vision of the Covenant",
+      "ability": "Sinister Vessels",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Xul, The Blood Monolith",
+      "mob": "Vel'korath the Sanctified, Vision of the Covenant",
+      "ability": "Hungering Vessels",
+      "target": "group",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Cithrel's Fall",
+      "mob": "Deceitful Scholar",
+      "ability": "Rune Of Detonation",
+      "target": "group",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Ransack of Drakheim",
+      "mob": "Craven Hiisi",
+      "ability": "Bonk Noggin",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Ransack of Drakheim",
+      "mob": "Bleakfrost Slaver",
+      "ability": "Barbed Chain",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Wraithtide Vault",
+      "mob": "Scuttlejack Cannoneer",
+      "ability": "Shackle Blast",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Wraithtide Vault",
+      "mob": "Greedspawn Sentinel",
+      "ability": "Greed's Embrace",
+      "target": "self",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Everdawn Grove",
+      "mob": "Horned Seer",
+      "ability": "Sanguine Offering",
+      "target": "group",
+      "affixOnly": true
+    },
+    {
+      "dungeon": "Everdawn Grove",
+      "mob": "Corrupted Totemic",
+      "ability": "Shadow Lob",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Godfall Quarry",
+      "mob": "Quarry Stalker",
+      "ability": "Poisonous Strike",
+      "target": "random",
+      "affixOnly": true
+    },
+    {
+      "dungeon": "Sailor's Abyss",
+      "mob": "Deepbound Magi",
+      "ability": "Shadow Eruption",
+      "target": "group",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Scryer's Peak",
+      "mob": "Overlord Varux",
+      "ability": "Fatalistic Ritual",
+      "target": "group",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Silken Hollow",
+      "mob": "Facestabber",
+      "ability": "Stab Yer Face!",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Urrak Markets",
+      "mob": "Urrak Slaver",
+      "ability": "Barbed Chain",
+      "target": "random",
+      "affixOnly": true
+    },
+    {
+      "dungeon": "Wyrmheart",
+      "mob": "Coldheart Assassin",
+      "ability": "Wicked Strikes",
+      "target": "random",
+      "affixOnly": false
+    },
+    {
+      "dungeon": "Wyrmheart",
+      "mob": "Apostate Veras",
+      "ability": "Frigid Mists",
+      "target": "group",
+      "affixOnly": false
+    }
+  ]
+}

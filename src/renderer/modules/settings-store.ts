@@ -119,6 +119,12 @@
       showDungeonScores: typeof source.showDungeonScores === 'boolean'
         ? source.showDungeonScores
         : DEFAULT_VISIBILITY_SETTINGS.showDungeonScores,
+      showDeathLog: typeof source.showDeathLog === 'boolean'
+        ? source.showDeathLog
+        : DEFAULT_VISIBILITY_SETTINGS.showDeathLog,
+      showCastAlerts: typeof source.showCastAlerts === 'boolean'
+        ? source.showCastAlerts
+        : DEFAULT_VISIBILITY_SETTINGS.showCastAlerts,
     };
   }
 

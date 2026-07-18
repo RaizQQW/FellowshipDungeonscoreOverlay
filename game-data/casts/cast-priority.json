@@ -1,0 +1,1766 @@
+{
+  "source": "example_logs (8 runs) ABILITY_CAST_START from Npc-*",
+  "generated": "2026-07-14",
+  "legend": {
+    "stop": "matches community must-stop list — interrupt",
+    "review": "seen in logs, not in list — needs human tiering",
+    "ignore": "Bolt-rule tank damage — low priority"
+  },
+  "casts": [
+    {
+      "mob": "Venomdrinker",
+      "abilityId": 1406,
+      "ability": "Venom Bolt",
+      "count": 250,
+      "isBolt": true,
+      "redditMatch": "Venom Bolt",
+      "priority": "stop"
+    },
+    {
+      "mob": "Warlord Brogg",
+      "abilityId": 630,
+      "ability": "Charged Bolt",
+      "count": 103,
+      "isBolt": true,
+      "redditMatch": "Charged Bolt",
+      "priority": "stop"
+    },
+    {
+      "mob": "Deceitful Scholar",
+      "abilityId": 731,
+      "ability": "Arcane Strike",
+      "count": 102,
+      "isBolt": false,
+      "redditMatch": "Arcane Strike",
+      "priority": "stop"
+    },
+    {
+      "mob": "Eldrin Sentinel",
+      "abilityId": 734,
+      "ability": "Shattering Barrier",
+      "count": 91,
+      "isBolt": false,
+      "redditMatch": "Shattering Barrier",
+      "priority": "stop"
+    },
+    {
+      "mob": "Horned Seer",
+      "abilityId": 296,
+      "ability": "Orb of Blood",
+      "count": 78,
+      "isBolt": false,
+      "redditMatch": "Orb of Blood",
+      "priority": "stop"
+    },
+    {
+      "mob": "Tombguard Reaver",
+      "abilityId": 780,
+      "ability": "Charge",
+      "count": 64,
+      "isBolt": false,
+      "redditMatch": "Charged Bolt",
+      "priority": "stop"
+    },
+    {
+      "mob": "Stormscreamer",
+      "abilityId": 616,
+      "ability": "Ball Lightning",
+      "count": 60,
+      "isBolt": false,
+      "redditMatch": "Ball Lightning",
+      "priority": "stop"
+    },
+    {
+      "mob": "Warlord Brogg",
+      "abilityId": 636,
+      "ability": "Dread Arc",
+      "count": 50,
+      "isBolt": false,
+      "redditMatch": "Dread Arc",
+      "priority": "stop"
+    },
+    {
+      "mob": "Coldbrine Fiend",
+      "abilityId": 218,
+      "ability": "Icy Annihilation",
+      "count": 46,
+      "isBolt": false,
+      "redditMatch": "Icy Annihilation",
+      "priority": "stop"
+    },
+    {
+      "mob": "Ashen Arsonist",
+      "abilityId": 202,
+      "ability": "Big Oogha Flame",
+      "count": 45,
+      "isBolt": false,
+      "redditMatch": "Big Oogha Flame",
+      "priority": "stop"
+    },
+    {
+      "mob": "Hellcaller",
+      "abilityId": 829,
+      "ability": "Restore Vitality",
+      "count": 40,
+      "isBolt": false,
+      "redditMatch": "Restore Vitality",
+      "priority": "stop"
+    },
+    {
+      "mob": "Enraged Earth Elemental",
+      "abilityId": 1529,
+      "ability": "Shatter",
+      "count": 31,
+      "isBolt": false,
+      "redditMatch": "Shattering Barrier",
+      "priority": "stop"
+    },
+    {
+      "mob": "Arcane Warden",
+      "abilityId": 904,
+      "ability": "Psionic Horror",
+      "count": 31,
+      "isBolt": false,
+      "redditMatch": "Psionic Horror",
+      "priority": "stop"
+    },
+    {
+      "mob": "Tide Witch",
+      "abilityId": 527,
+      "ability": "Sunken Gale",
+      "count": 29,
+      "isBolt": false,
+      "redditMatch": "Sunken Gale",
+      "priority": "stop"
+    },
+    {
+      "mob": "Tormented Spectre",
+      "abilityId": 51,
+      "ability": "Anguish Unleashed",
+      "count": 28,
+      "isBolt": false,
+      "redditMatch": "Anguish Unleashed",
+      "priority": "stop"
+    },
+    {
+      "mob": "Soulpowder Buccaneer",
+      "abilityId": 602,
+      "ability": "Soulpowder Shot",
+      "count": 26,
+      "isBolt": false,
+      "redditMatch": "Soulpowder Shot",
+      "priority": "stop"
+    },
+    {
+      "mob": "Profane Invoker",
+      "abilityId": 833,
+      "ability": "Wither",
+      "count": 24,
+      "isBolt": false,
+      "redditMatch": "Wither",
+      "priority": "stop"
+    },
+    {
+      "mob": "Icebite Reaver",
+      "abilityId": 206,
+      "ability": "Frostbitten Strength",
+      "count": 22,
+      "isBolt": false,
+      "redditMatch": "Frostbitten Strength",
+      "priority": "stop"
+    },
+    {
+      "mob": "Bully Basher",
+      "abilityId": 626,
+      "ability": "Together Stronk!",
+      "count": 22,
+      "isBolt": false,
+      "redditMatch": "Together Stronk",
+      "priority": "stop"
+    },
+    {
+      "mob": "Bilgerat",
+      "abilityId": 608,
+      "ability": "Vermin Tide",
+      "count": 22,
+      "isBolt": false,
+      "redditMatch": "Vermin Tide",
+      "priority": "stop"
+    },
+    {
+      "mob": "Deepbound Magi",
+      "abilityId": 496,
+      "ability": "Call of the Abyss",
+      "count": 21,
+      "isBolt": false,
+      "redditMatch": "Call of the Abyss",
+      "priority": "stop"
+    },
+    {
+      "mob": "Apostate Veras",
+      "abilityId": 713,
+      "ability": "Icy Death",
+      "count": 20,
+      "isBolt": false,
+      "redditMatch": "Icy Death",
+      "priority": "stop"
+    },
+    {
+      "mob": "Acolyte of Sinnari",
+      "abilityId": 1618,
+      "ability": "Sinnari's Wrath",
+      "count": 20,
+      "isBolt": false,
+      "redditMatch": "Sinnari's Wrath",
+      "priority": "stop"
+    },
+    {
+      "mob": "Urrak Witch",
+      "abilityId": 1544,
+      "ability": "Jungle Rot",
+      "count": 19,
+      "isBolt": false,
+      "redditMatch": "Jungle Rot",
+      "priority": "stop"
+    },
+    {
+      "mob": "Gravesnare Kidnapper",
+      "abilityId": 469,
+      "ability": "Kidnap",
+      "count": 17,
+      "isBolt": false,
+      "redditMatch": "Kidnap",
+      "priority": "stop"
+    },
+    {
+      "mob": "Corrupter",
+      "abilityId": 744,
+      "ability": "Drain Life",
+      "count": 17,
+      "isBolt": false,
+      "redditMatch": "Drain Life",
+      "priority": "stop"
+    },
+    {
+      "mob": "Bleakfrost Mystic",
+      "abilityId": 280,
+      "ability": "Invigorate",
+      "count": 17,
+      "isBolt": false,
+      "redditMatch": "Invigorate",
+      "priority": "stop"
+    },
+    {
+      "mob": "Venomdrinker",
+      "abilityId": 1649,
+      "ability": "Poisonado",
+      "count": 15,
+      "isBolt": false,
+      "redditMatch": "Poisonado",
+      "priority": "stop"
+    },
+    {
+      "mob": "Arcane Warden",
+      "abilityId": 905,
+      "ability": "Torment",
+      "count": 14,
+      "isBolt": false,
+      "redditMatch": "Torment",
+      "priority": "stop"
+    },
+    {
+      "mob": "Water Elemental",
+      "abilityId": 480,
+      "ability": "Healing Waters",
+      "count": 10,
+      "isBolt": false,
+      "redditMatch": "Healing Waters",
+      "priority": "stop"
+    },
+    {
+      "mob": "Nezari Bolter",
+      "abilityId": 909,
+      "ability": "Bolt Barrage",
+      "count": 10,
+      "isBolt": true,
+      "redditMatch": "Bolt Barrage",
+      "priority": "stop"
+    },
+    {
+      "mob": "Nightmist Whisperer",
+      "abilityId": 265,
+      "ability": "Silence",
+      "count": 7,
+      "isBolt": false,
+      "redditMatch": "Silence",
+      "priority": "stop"
+    },
+    {
+      "mob": "Nightmist Whisperer",
+      "abilityId": 234,
+      "ability": "Blinding Fear",
+      "count": 7,
+      "isBolt": false,
+      "redditMatch": "Blinding Fear",
+      "priority": "stop"
+    },
+    {
+      "mob": "Eldrin Chronomancer",
+      "abilityId": 64,
+      "ability": "Temporal Manipulation",
+      "count": 7,
+      "isBolt": false,
+      "redditMatch": "Temporal Manipulation",
+      "priority": "stop"
+    },
+    {
+      "mob": "Greedbound Prism",
+      "abilityId": 560,
+      "ability": "Mindrender Barrage",
+      "count": 3,
+      "isBolt": false,
+      "redditMatch": "Mindrender Barrage",
+      "priority": "stop"
+    },
+    {
+      "mob": "Heskyr Zealot",
+      "abilityId": 2192,
+      "ability": "Twisting Slice",
+      "count": 406,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vessel of Vel'korath",
+      "abilityId": 2126,
+      "ability": "Eradication",
+      "count": 400,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Facestabber",
+      "abilityId": 622,
+      "ability": "Throw Knife",
+      "count": 302,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Outrunner",
+      "abilityId": 26,
+      "ability": "Bola Throw",
+      "count": 250,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Mangy Brute",
+      "abilityId": 641,
+      "ability": "Bash",
+      "count": 236,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Heskyr Zealot",
+      "abilityId": 2042,
+      "ability": "Frenzy",
+      "count": 176,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vessel of Vel'korath",
+      "abilityId": 2127,
+      "ability": "Gorging Pool",
+      "count": 152,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Nightmist Cutthroat",
+      "abilityId": 2084,
+      "ability": "Backstab",
+      "count": 144,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vengeful Shade",
+      "abilityId": 52,
+      "ability": "Curse of Drowning",
+      "count": 138,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Tundra Stalker",
+      "abilityId": 724,
+      "ability": "Rapid Fire",
+      "count": 126,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Urrak Slaver",
+      "abilityId": 292,
+      "ability": "Bloodlash Wake",
+      "count": 118,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Undying Champion",
+      "abilityId": 2163,
+      "ability": "Obliterate Life",
+      "count": 118,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "abilityId": 2111,
+      "ability": "Exsanguinating Strike",
+      "count": 114,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ruinous Star",
+      "abilityId": 455,
+      "ability": "Darkstar Ruin",
+      "count": 107,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Dire Wolf",
+      "abilityId": 2088,
+      "ability": "Hunt Prey",
+      "count": 101,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Blade of Cithrel",
+      "abilityId": 737,
+      "ability": "Slicing Blades",
+      "count": 100,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Anomalous Orb",
+      "abilityId": 1903,
+      "ability": "Detonate",
+      "count": 91,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Dunesnare Hunter",
+      "abilityId": 794,
+      "ability": "Soulpiercer",
+      "count": 86,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Blade of Cithrel",
+      "abilityId": 738,
+      "ability": "Ice Breaker",
+      "count": 86,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bleakfrost Slaver",
+      "abilityId": 1953,
+      "ability": "Shackle Chuck",
+      "count": 82,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Gravesnare Kidnapper",
+      "abilityId": 1645,
+      "ability": "Razorlace Web",
+      "count": 81,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ashen Arsonist",
+      "abilityId": 203,
+      "ability": "Flame Blast",
+      "count": 80,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bully Basher",
+      "abilityId": 624,
+      "ability": "Bully Bash",
+      "count": 79,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Urrak Slaver",
+      "abilityId": 1954,
+      "ability": "Shackle Chuck",
+      "count": 75,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sanguine Crusher",
+      "abilityId": 2107,
+      "ability": "Pulverize",
+      "count": 75,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bael'Aurum",
+      "abilityId": 577,
+      "ability": "Temptation",
+      "count": 71,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Nightmist Fiend",
+      "abilityId": 271,
+      "ability": "Devouring Darkness",
+      "count": 65,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Godfall Wardstone",
+      "abilityId": 1642,
+      "ability": "Searing Beam",
+      "count": 65,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sinthara",
+      "abilityId": 514,
+      "ability": "Undertow",
+      "count": 59,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Gorestained Butcher",
+      "abilityId": 1519,
+      "ability": "Furious Tantrum",
+      "count": 58,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Godfall Titan",
+      "abilityId": 1456,
+      "ability": "Arcane Burst",
+      "count": 58,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Task Master",
+      "abilityId": 85,
+      "ability": "Sweeping Hook",
+      "count": 57,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Drazhul the Fleshbroker",
+      "abilityId": 311,
+      "ability": "Conjure Scythe",
+      "count": 56,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Dredge",
+      "abilityId": 913,
+      "ability": "Throw Stone",
+      "count": 54,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bloodstone Totem",
+      "abilityId": 1653,
+      "ability": "Corruption",
+      "count": 53,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Stalking Grim",
+      "abilityId": 2039,
+      "ability": "Piercing Howl",
+      "count": 51,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Noor, The Betrayer",
+      "abilityId": 747,
+      "ability": "Cold-blooded Twist",
+      "count": 50,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sinthara",
+      "abilityId": 512,
+      "ability": "Deafening Screech",
+      "count": 48,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sin-Magir",
+      "abilityId": 460,
+      "ability": "Penumbra",
+      "count": 48,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Hellcaller",
+      "abilityId": 830,
+      "ability": "Armaggedon",
+      "count": 48,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Overlord Varux",
+      "abilityId": 2091,
+      "ability": "Sanguine Brand",
+      "count": 47,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sanguine Crusher",
+      "abilityId": 2109,
+      "ability": "Sunder Earth",
+      "count": 44,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vexira, Mother of Nightmares",
+      "abilityId": 470,
+      "ability": "Venom Spray",
+      "count": 42,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Nightmist Fiend",
+      "abilityId": 232,
+      "ability": "Devouring Darkness",
+      "count": 40,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Overlord Varux",
+      "abilityId": 2094,
+      "ability": "Crimson Crucifix",
+      "count": 38,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Malgut the Fetid",
+      "abilityId": 1640,
+      "ability": "Corrupting Shot",
+      "count": 37,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Drazhul the Fleshbroker",
+      "abilityId": 1520,
+      "ability": "Furious Tantrum",
+      "count": 35,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sin-Magir",
+      "abilityId": 458,
+      "ability": "Lunar Soulsear",
+      "count": 33,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Overlord Varux",
+      "abilityId": 2093,
+      "ability": "Blood Link",
+      "count": 31,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Mancatcher",
+      "abilityId": 59,
+      "ability": "Grip",
+      "count": 31,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bloodstone Goliath",
+      "abilityId": 647,
+      "ability": "Earthcore Upheaval",
+      "count": 31,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "abilityId": 2110,
+      "ability": "Nullification",
+      "count": 30,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xurath, Fist of the Warden",
+      "abilityId": 2174,
+      "ability": "Crushing Darkness",
+      "count": 29,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Warlord Brogg",
+      "abilityId": 1634,
+      "ability": "Forked Lightning",
+      "count": 29,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Gravebreaker Brute",
+      "abilityId": 785,
+      "ability": "Crescent Cleave",
+      "count": 29,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Scuttlejack Cannoneer",
+      "abilityId": 563,
+      "ability": "Blunder Boom",
+      "count": 28,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ghorn the Giant",
+      "abilityId": 1831,
+      "ability": "Crushing Blows",
+      "count": 28,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Malgut the Fetid",
+      "abilityId": 657,
+      "ability": "Crystal Volley",
+      "count": 27,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Fodir Kaldur",
+      "abilityId": 252,
+      "ability": "Blazing Slam",
+      "count": 26,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Urrak Witch",
+      "abilityId": 1449,
+      "ability": "Grasping Vines",
+      "count": 25,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xurath, Fist of the Warden",
+      "abilityId": 2178,
+      "ability": "Seek and Destroy",
+      "count": 24,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Crimson Abomination",
+      "abilityId": 2150,
+      "ability": "Perish Pulse",
+      "count": 24,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Akari the Everdawn Lord",
+      "abilityId": 652,
+      "ability": "Panicked Charge",
+      "count": 24,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vel’korath the Sanctified, Vision of the Covenant",
+      "abilityId": 2134,
+      "ability": "Repent",
+      "count": 23,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Clot Spawn",
+      "abilityId": 2148,
+      "ability": "Bursting Blood",
+      "count": 23,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Moar'gore, Master of Sacrifice",
+      "abilityId": 863,
+      "ability": "Siphon Blood",
+      "count": 22,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Icebite Reaver",
+      "abilityId": 205,
+      "ability": "Glacial Sunder",
+      "count": 22,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vexira, Mother of Nightmares",
+      "abilityId": 472,
+      "ability": "Fang Strike",
+      "count": 21,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Overlord Varux",
+      "abilityId": 2092,
+      "ability": "Grim Rush",
+      "count": 21,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Godfall Titan",
+      "abilityId": 1450,
+      "ability": "Titanic Slam",
+      "count": 21,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Greater Ice Elemental",
+      "abilityId": 702,
+      "ability": "Frozen Stomp",
+      "count": 20,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Auga Handhafi the Blind",
+      "abilityId": 235,
+      "ability": "Revelation",
+      "count": 20,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Slavetrader Brull",
+      "abilityId": 1440,
+      "ability": "Wildroot Thorns",
+      "count": 18,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ghorn the Avalanche",
+      "abilityId": 1830,
+      "ability": "Crushing Blows",
+      "count": 18,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Warlord Brogg",
+      "abilityId": 629,
+      "ability": "Perfect Storm",
+      "count": 17,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Gravescythe",
+      "abilityId": 56,
+      "ability": "Dark Cleave",
+      "count": 17,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vaerith Vorn",
+      "abilityId": 1454,
+      "ability": "Mana Bomb",
+      "count": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sin-Magir",
+      "abilityId": 456,
+      "ability": "Ruinous Starfall",
+      "count": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Hellcaller",
+      "abilityId": 828,
+      "ability": "Demonic Lash",
+      "count": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Greater Ice Elemental",
+      "abilityId": 703,
+      "ability": "Avalanche",
+      "count": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Fodir Kaldur",
+      "abilityId": 255,
+      "ability": "Frost Bite",
+      "count": 16,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Slavetrader Brull",
+      "abilityId": 309,
+      "ability": "Creeping Death",
+      "count": 15,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sinthara",
+      "abilityId": 507,
+      "ability": "Necrotic Wave",
+      "count": 15,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Malgut the Fetid",
+      "abilityId": 662,
+      "ability": "Umbral Eruption",
+      "count": 15,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Kaldurson Eldsupptok",
+      "abilityId": 248,
+      "ability": "Blazing Slam",
+      "count": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Glacial Bear",
+      "abilityId": 2086,
+      "ability": "Glacial Slam",
+      "count": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Cithrel",
+      "abilityId": 763,
+      "ability": "Breath of Al'zerac",
+      "count": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Carrion Horror",
+      "abilityId": 1405,
+      "ability": "Bursting Brood",
+      "count": 14,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Tombguard Reaver",
+      "abilityId": 781,
+      "ability": "Whirlwind",
+      "count": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Malgut the Fetid",
+      "abilityId": 661,
+      "ability": "Godrot Eclipse",
+      "count": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Heart of Rot",
+      "abilityId": 2160,
+      "ability": "Blood Boil",
+      "count": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "First Mate Marrow",
+      "abilityId": 599,
+      "ability": "Wavestomp",
+      "count": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Drazhul the Fleshbroker",
+      "abilityId": 313,
+      "ability": "Vortex",
+      "count": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Cithrel",
+      "abilityId": 764,
+      "ability": "Path to Oblivion",
+      "count": 13,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Prophet Ez'rath",
+      "abilityId": 879,
+      "ability": "Dark Malice",
+      "count": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Han-Eth, Sentry of Xul",
+      "abilityId": 2124,
+      "ability": "Annihilation Protocol",
+      "count": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Glacial Bear",
+      "abilityId": 2085,
+      "ability": "Arctic Wail",
+      "count": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Deathless Katrine",
+      "abilityId": 584,
+      "ability": "Quick Draw",
+      "count": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bael'Aurum",
+      "abilityId": 576,
+      "ability": "Erupting Envy",
+      "count": 12,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "abilityId": 2117,
+      "ability": "Gatekeeper's Edict",
+      "count": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xul’vorith, Sentinel of the Bloodbound Gate",
+      "abilityId": 2028,
+      "ability": "Gatekeeper's Judgment",
+      "count": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vexira, Mother of Nightmares",
+      "abilityId": 1396,
+      "ability": "Call Children",
+      "count": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ghorn the Avalanche",
+      "abilityId": 1835,
+      "ability": "Icebreaker",
+      "count": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Deathless Katrine",
+      "abilityId": 582,
+      "ability": "Soulpowder Cyclone",
+      "count": 11,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vexira, Mother of Nightmares",
+      "abilityId": 1600,
+      "ability": "Mothers Milk",
+      "count": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Enforcer",
+      "abilityId": 915,
+      "ability": "Piercing Strike",
+      "count": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Eira the White Witch",
+      "abilityId": 1819,
+      "ability": "Shattering Ice",
+      "count": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bloodstone Goliath",
+      "abilityId": 650,
+      "ability": "Bloodstone Erruption",
+      "count": 10,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Shadow of Ulmorgat",
+      "abilityId": 269,
+      "ability": "Dark Ritual",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ghorn the Avalanche",
+      "abilityId": 1834,
+      "ability": "Winter Cataclysm",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Fodir Kaldur",
+      "abilityId": 1599,
+      "ability": "Burning Aura",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Fodir Kaldur",
+      "abilityId": 1597,
+      "ability": "Freezing Aura",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Chilgar the Drowned",
+      "abilityId": 228,
+      "ability": "Freezing Flood",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Chilgar the Drowned",
+      "abilityId": 1423,
+      "ability": "Grasping Pillar",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Barbarous Lasher",
+      "abilityId": 609,
+      "ability": "Crush Armor",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Ancient Koros",
+      "abilityId": 756,
+      "ability": "Shatterstrike",
+      "count": 9,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Sinthara",
+      "abilityId": 509,
+      "ability": "Siren's Song",
+      "count": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Heskyr Magus",
+      "abilityId": 2043,
+      "ability": "Bloodwell Barrier",
+      "count": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Han-Eth, Sentry of Xul",
+      "abilityId": 2121,
+      "ability": "Summon Creations",
+      "count": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Auga Handhafi the Blind",
+      "abilityId": 237,
+      "ability": "Dark Ritual",
+      "count": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Apostate Veras",
+      "abilityId": 710,
+      "ability": "Howling Blast",
+      "count": 8,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Xurath, Fist of the Warden",
+      "abilityId": 2177,
+      "ability": "Unholy Hymn",
+      "count": 7,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Shadow of Ulmorgat",
+      "abilityId": 272,
+      "ability": "Shadow Slam",
+      "count": 7,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Noor, The Betrayer",
+      "abilityId": 749,
+      "ability": "Arcane Volley",
+      "count": 7,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Moar'gore, Master of Sacrifice",
+      "abilityId": 864,
+      "ability": "Sacrificial Pyre",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Fodir Kaldur",
+      "abilityId": 1426,
+      "ability": "Ice Tomb",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "First Mate Marrow",
+      "abilityId": 598,
+      "ability": "High Tide",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Eira the White Witch",
+      "abilityId": 1817,
+      "ability": "Rune of the White Witch",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Coldheart Assassin",
+      "abilityId": 66,
+      "ability": "Coldheart Poison",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Blighted Dawnbloom",
+      "abilityId": 665,
+      "ability": "Blighted Ichor",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bael'Aurum",
+      "abilityId": 575,
+      "ability": "Shadowgreed Eclipse",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Bael'Aurum",
+      "abilityId": 571,
+      "ability": "Orb of Bael'Aurum",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Auga Handhafi the Blind",
+      "abilityId": 236,
+      "ability": "Abyssal Offering",
+      "count": 6,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vun’Kahr, the Thorned Maw",
+      "abilityId": 1764,
+      "ability": "Fangroot Snap",
+      "count": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Vel’korath the Sanctified, Vision of the Covenant",
+      "abilityId": 2130,
+      "ability": "Blood Sermon",
+      "count": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Heskyr Magus",
+      "abilityId": 2205,
+      "ability": "Searing Veins",
+      "count": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Deathless Katrine",
+      "abilityId": 1766,
+      "ability": "No Quarters!",
+      "count": 5,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Twisted Root",
+      "abilityId": 888,
+      "ability": "Rootslam",
+      "count": 4,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Prophet Ez'rath",
+      "abilityId": 78,
+      "ability": "Wicked Hook",
+      "count": 4,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Meandering Acolyte",
+      "abilityId": 2168,
+      "ability": "Ghastly Nova",
+      "count": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Kaldurson Isilagður",
+      "abilityId": 1593,
+      "ability": "Freezing Aura",
+      "count": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Kaldurson Eldsupptok",
+      "abilityId": 1595,
+      "ability": "Burning Aura",
+      "count": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Gravebreaker Brute",
+      "abilityId": 1641,
+      "ability": "Decimate",
+      "count": 3,
+      "isBolt": false,
+      "redditMatch": null,
+      "priority": "review"
+    },
+    {
+      "mob": "Profane Invoker",
+      "abilityId": 832,
+      "ability": "Shadow Bolt",
+      "count": 331,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Slavetrader Brull",
+      "abilityId": 308,
+      "ability": "Wild Bolt",
+      "count": 293,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Horned Seer",
+      "abilityId": 1545,
+      "ability": "Pain Bolt",
+      "count": 191,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Tide Witch",
+      "abilityId": 526,
+      "ability": "Dreadwater Bolt",
+      "count": 175,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Deepbound Magi",
+      "abilityId": 1667,
+      "ability": "Necrotic Bolt",
+      "count": 134,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Coldbrine Fiend",
+      "abilityId": 217,
+      "ability": "Brine Bolt",
+      "count": 110,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Urrak Witch",
+      "abilityId": 290,
+      "ability": "Mossfire Bolt",
+      "count": 98,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Heskyr Magus",
+      "abilityId": 2206,
+      "ability": "Malice Bolt",
+      "count": 74,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Stormscreamer",
+      "abilityId": 615,
+      "ability": "Crackling Bolt",
+      "count": 71,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Corrupter",
+      "abilityId": 741,
+      "ability": "Ice Bolt",
+      "count": 70,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Bleakfrost Mystic",
+      "abilityId": 281,
+      "ability": "Frost Bolt",
+      "count": 69,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Nightmist Whisperer",
+      "abilityId": 266,
+      "ability": "Shadow Bolt",
+      "count": 62,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Eira the White Witch",
+      "abilityId": 1818,
+      "ability": "Winter Bolt",
+      "count": 52,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Meandering Acolyte",
+      "abilityId": 2166,
+      "ability": "Hollow Bolt",
+      "count": 39,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Sanguine Echo",
+      "abilityId": 2106,
+      "ability": "Blood Bolt",
+      "count": 30,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Water Elemental",
+      "abilityId": 481,
+      "ability": "Hydrobolt",
+      "count": 28,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    },
+    {
+      "mob": "Nightbound Magi",
+      "abilityId": 776,
+      "ability": "Shadow Bolt",
+      "count": 17,
+      "isBolt": true,
+      "redditMatch": null,
+      "priority": "ignore"
+    }
+  ]
+}

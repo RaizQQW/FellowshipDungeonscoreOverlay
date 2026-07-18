@@ -1,0 +1,861 @@
+{
+ "source": "method.gg dungeon guides (per-ability interrupt-method extraction)",
+ "generated": "2026-07-17",
+ "scope": "Interruptible casts (interruptType stun|kick) plus any important mechanic. dodge/soak 'mechanic' casts remain sourced from method-guidance.json priority. interruptType: stun=CC/hard-stop only (not kickable); kick=interruptible; dodge=avoid/soak/dispel; other=info/tank/passive. important=wipe/death-risk wording.",
+ "dungeons_covered": 15,
+ "entries": [
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Blade of Cithrel",
+   "ability": "Slicing Blades",
+   "interruptType": "stun",
+   "important": false,
+   "note": "AMBIGUOUS: avoid or CC to stop"
+  },
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Corrupter",
+   "ability": "Drain Life",
+   "interruptType": "kick",
+   "important": true,
+   "note": "always interrupt or CC"
+  },
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Corrupter",
+   "ability": "Ice Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Deceitful Scholar",
+   "ability": "Arcane Strike",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Deceitful Scholar",
+   "ability": "Rune Of Detonation",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Eldrin Sentinel",
+   "ability": "Shattering Barrier",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt or CC every cast"
+  },
+  {
+   "dungeon": "Cithrel's Fall",
+   "mob": "Tundra Stalker",
+   "ability": "Rapid Fire",
+   "interruptType": "stun",
+   "important": false,
+   "note": "AMBIGUOUS: step out (dodge) or CC to stop"
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Acolyte of Sinnari",
+   "ability": "Sinnari's Wrath",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Greedspawn Sentinel",
+   "ability": "Greed's Embrace",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Nightbound Magi",
+   "ability": "Constellation Of Ruin",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "CC-immune; soak 4 circles or heavy group dmg"
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Nightbound Magi",
+   "ability": "Shadow Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Sin-Magir",
+   "ability": "Ruinous Starfall",
+   "interruptType": "other",
+   "important": true,
+   "note": "add-kill mechanic; lethal if all go off"
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Water Elemental",
+   "ability": "Healing Waters",
+   "interruptType": "kick",
+   "important": false,
+   "note": "CC-immune; interrupt the heal"
+  },
+  {
+   "dungeon": "Empyrean Sands",
+   "mob": "Water Elemental",
+   "ability": "Hydrobolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Everdawn Grove",
+   "mob": "Blighted Dawnbloom",
+   "ability": "Blighted Ichor",
+   "interruptType": "stun",
+   "important": false,
+   "note": "CC to stop or dispel; no interrupt word"
+  },
+  {
+   "dungeon": "Everdawn Grove",
+   "mob": "Corrupted Totemic",
+   "ability": "Shadow Lob",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Everdawn Grove",
+   "mob": "Horned Seer",
+   "ability": "Orb Of Blood",
+   "interruptType": "kick",
+   "important": false,
+   "note": "AMBIGUOUS: avoid or interrupt/CC"
+  },
+  {
+   "dungeon": "Everdawn Grove",
+   "mob": "Horned Seer",
+   "ability": "Pain Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Everdawn Grove",
+   "mob": "Horned Seer",
+   "ability": "Sanguine Offering",
+   "interruptType": "kick",
+   "important": true,
+   "note": "can quickly burst players down"
+  },
+  {
+   "dungeon": "Everdawn Grove",
+   "mob": "Malgut the Fetid",
+   "ability": "Godrot Eclipse",
+   "interruptType": "stun",
+   "important": false,
+   "note": "interrupts don't work; stun via Akari charge"
+  },
+  {
+   "dungeon": "Godfall Quarry",
+   "mob": "Arcane Warden",
+   "ability": "Psionic Horror",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Godfall Quarry",
+   "mob": "Arcane Warden",
+   "ability": "Torment",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Godfall Quarry",
+   "mob": "Godfall Wardstone",
+   "ability": "Searing Beam",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt/CC makes it Vulnerable -> burst window"
+  },
+  {
+   "dungeon": "Godfall Quarry",
+   "mob": "Nezari Bolter",
+   "ability": "Bolt Barrage",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Godfall Quarry",
+   "mob": "Quarry Stalker",
+   "ability": "Poisonous Strike",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Ashen Arsonist",
+   "ability": "Big Oogha Flame",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Ashen Arsonist",
+   "ability": "Flame Blast",
+   "interruptType": "kick",
+   "important": false,
+   "note": "AMBIGUOUS: step out or interrupt/CC"
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Bleakfrost Mystic",
+   "ability": "Frost Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Bleakfrost Mystic",
+   "ability": "Invigorate",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt/CC to prevent healing"
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Bleakfrost Slaver",
+   "ability": "Barbed Chain",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Coldbrine Fiend",
+   "ability": "Brine Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Coldbrine Fiend",
+   "ability": "Icy Annihilation",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Craven Hiisi",
+   "ability": "Bonk Noggin",
+   "interruptType": "stun",
+   "important": false,
+   "note": "CC to stop; no interrupt word"
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Icebite Reaver",
+   "ability": "Frostbitten Strength",
+   "interruptType": "kick",
+   "important": true,
+   "note": "CC-immune mob; interrupt every cast"
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Nightmist Whisperer",
+   "ability": "Blinding Fear",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt or CC every cast"
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Nightmist Whisperer",
+   "ability": "Shadow Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ransack of Drakheim",
+   "mob": "Nightmist Whisperer",
+   "ability": "Silence",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ruins of Regath",
+   "mob": "Heskyr Magus",
+   "ability": "Blood Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ruins of Regath",
+   "mob": "Meandering Acolyte",
+   "ability": "Unholy Restoration",
+   "interruptType": "kick",
+   "important": false,
+   "note": "single-target interruptible heal"
+  },
+  {
+   "dungeon": "Ruins of Regath",
+   "mob": "Sanguine Disciple",
+   "ability": "Sanguine Ritual",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt earlier -> weaker summon"
+  },
+  {
+   "dungeon": "Ruins of Regath",
+   "mob": "Sanguine Echo",
+   "ability": "Blood Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Ruins of Regath",
+   "mob": "Xurath, Fist of the Warden",
+   "ability": "Unholy Hymn",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "stand in selected rune or massive damage"
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Deepbound Magi",
+   "ability": "Necrotic Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Deepbound Magi",
+   "ability": "Shadow Eruption",
+   "interruptType": "kick",
+   "important": true,
+   "note": "CC-immune; prioritize interrupting"
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Sinthara",
+   "ability": "Siren's Song",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "charm forces players off platform to death"
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Tormented Spectre",
+   "ability": "Anguish Unleashed",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt or CC every cast"
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Vengeful Shade",
+   "ability": "Curse Of Drowning",
+   "interruptType": "stun",
+   "important": false,
+   "note": "AMBIGUOUS: dispel or CC; no interrupt word"
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Water Elemental",
+   "ability": "Healing Waters",
+   "interruptType": "kick",
+   "important": false,
+   "note": "CC-immune; interrupt the heal"
+  },
+  {
+   "dungeon": "Sailor's Abyss",
+   "mob": "Water Elemental",
+   "ability": "Hydrobolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Scryer's Peak",
+   "mob": "Heskyr Magus",
+   "ability": "Blood Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Scryer's Peak",
+   "mob": "Overlord Varux",
+   "ability": "Fatalistic Ritual",
+   "interruptType": "kick",
+   "important": true,
+   "note": "high ticking dmg until interrupted"
+  },
+  {
+   "dungeon": "Scryer's Peak",
+   "mob": "Sanguine Disciple",
+   "ability": "Sanguine Ritual",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Bully Basher",
+   "ability": "Together Stronk!",
+   "interruptType": "kick",
+   "important": false,
+   "note": "CC-immune mob -> interrupt"
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Facestabber",
+   "ability": "Stab Yer Face!",
+   "interruptType": "stun",
+   "important": false,
+   "note": "CC to stop channel; SPOT-CHECK"
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Gravesnare Kidnapper",
+   "ability": "Kidnap",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt or CC every cast"
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Rotheart Recluse",
+   "ability": "Heartstopper",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "dispel before expiry or lethal hit"
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Venom Drinker",
+   "ability": "Poisonado",
+   "interruptType": "stun",
+   "important": false,
+   "note": "CC to stop; no interrupt word"
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Venom Drinker",
+   "ability": "Venom Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Vexira, Mother of Nightmares",
+   "ability": "Devour",
+   "interruptType": "other",
+   "important": true,
+   "note": "quickly lethal; prevented via Tethering Webs"
+  },
+  {
+   "dungeon": "Silken Hollow",
+   "mob": "Vexira, Mother of Nightmares",
+   "ability": "Tethering Webs",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "break ASAP by moving apart"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Ashen Arsonist",
+   "ability": "Big Oogha Flame",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt/CC to stop or dispel"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Ashen Arsonist",
+   "ability": "Flame Blast",
+   "interruptType": "kick",
+   "important": false,
+   "note": "AMBIGUOUS: step out (dodge) OR interrupt/CC — frontal on tank"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Bully Basher",
+   "ability": "Together Stronk!",
+   "interruptType": "kick",
+   "important": false,
+   "note": "mob CC-immune -> must interrupt, not stun"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Facestabber",
+   "ability": "Stab Yer Face!",
+   "interruptType": "stun",
+   "important": false,
+   "note": "CC to stop the channel (no interrupt mentioned) -> stun; SPOT-CHECK"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Profane Invoker",
+   "ability": "Shadow Bolt",
+   "interruptType": "kick",
+   "important": false,
+   "note": "tank target; spare interrupts"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Profane Invoker",
+   "ability": "Wither",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt/CC to stop or dispel"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Stormscreamer",
+   "ability": "Ball Lightning",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt/CC or avoid projectile"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Stormscreamer",
+   "ability": "Crackling Bolt",
+   "interruptType": "kick",
+   "important": false,
+   "note": "tank; spare interrupts"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Warlord Brogg",
+   "ability": "Charged Bolt",
+   "interruptType": "kick",
+   "important": false,
+   "note": "spare interrupts, random"
+  },
+  {
+   "dungeon": "Stormwatch",
+   "mob": "Warlord Brogg",
+   "ability": "Dread Arc",
+   "interruptType": "kick",
+   "important": true,
+   "note": "MUST interrupt every cast; misses -> deaths w/ Storm's Conduit"
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Ashen Arsonist",
+   "ability": "Big Oogha Flame",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Ashen Arsonist",
+   "ability": "Flame Blast",
+   "interruptType": "kick",
+   "important": false,
+   "note": "AMBIGUOUS: step out or interrupt/CC"
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Hellcaller",
+   "ability": "Demonic Lash",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Hellcaller",
+   "ability": "Restore Vitality",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt/CC to prevent healing"
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Profane Invoker",
+   "ability": "Shadow Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Profane Invoker",
+   "ability": "Wither",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "The Heart of Tuzari",
+   "mob": "Vun'Kahr, the Thorned Maw",
+   "ability": "Toxic Spores",
+   "interruptType": "kick",
+   "important": true,
+   "note": "keep interrupt rotation on it"
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Drazhul the Fleshbroker",
+   "ability": "Infernal Explosive",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "soak or massive group dmg"
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Drazhul the Fleshbroker",
+   "ability": "Vortex",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "lethal if too close"
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Hellcaller",
+   "ability": "Demonic Lash",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Hellcaller",
+   "ability": "Restore Vitality",
+   "interruptType": "kick",
+   "important": false,
+   "note": "interrupt/CC to prevent healing"
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Horned Seer",
+   "ability": "Pain Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Horned Seer",
+   "ability": "Sanguine Offering",
+   "interruptType": "kick",
+   "important": true,
+   "note": "can quickly burst players down"
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Slavetrader Brull",
+   "ability": "Creeping Death",
+   "interruptType": "stun",
+   "important": false,
+   "note": "SPOT-CHECK: uninterruptible tank hit (mitigate)"
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Slavetrader Brull",
+   "ability": "Wild Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Urrak Slaver",
+   "ability": "Barbed Chain",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Urrak Markets",
+   "mob": "Urrak Witch",
+   "ability": "Mossfire Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Bilgerat",
+   "ability": "Vermin Tide",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Greedbound Prism",
+   "ability": "Mindrender Barrage",
+   "interruptType": "kick",
+   "important": true,
+   "note": "heavy group damage; interrupt or CC"
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Greedspawn Sentinel",
+   "ability": "Greed's Embrace",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt or CC ASAP"
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Jungle Stalker",
+   "ability": "Stalker's Bite",
+   "interruptType": "stun",
+   "important": false,
+   "note": "defensives or CCs to stop; no interrupt word"
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Scuttlejack Cannoneer",
+   "ability": "Blunder Boom",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Scuttlejack Cannoneer",
+   "ability": "Shackle Blast",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Soulpowder Buccaneer",
+   "ability": "Soulpowder Shot",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Tide Witch",
+   "ability": "Dreadwater Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wraithtide Vault",
+   "mob": "Tide Witch",
+   "ability": "Sunken Gale",
+   "interruptType": "kick",
+   "important": false,
+   "note": "AMBIGUOUS: interrupt/CC or avoid projectile"
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Apostate Veras",
+   "ability": "Frigid Mists",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt every cast quickly"
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Apostate Veras",
+   "ability": "Icy Death",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Coldheart Assassin",
+   "ability": "Wicked Strikes",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Deceitful Scholar",
+   "ability": "Arcane Strike",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Deceitful Scholar",
+   "ability": "Rune Of Detonation",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Deceitful Scholar",
+   "ability": "Volatile Orb",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "kite; massive group dmg if it reaches target"
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Eldrin Chronomancer",
+   "ability": "Decripify",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Wyrmheart",
+   "mob": "Eldrin Chronomancer",
+   "ability": "Temporal Manipulation",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Heart of Rot",
+   "ability": "Consume",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt immediately; significant target damage"
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Heskyr Magus",
+   "ability": "Blood Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Heskyr Magus",
+   "ability": "Vascular Eruption",
+   "interruptType": "dodge",
+   "important": true,
+   "note": "must be dispelled; 35% max HP at 10 stacks"
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Heskyr Zealot",
+   "ability": "Frenzy",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Sanguine Disciple",
+   "ability": "Sanguine Ritual",
+   "interruptType": "kick",
+   "important": true,
+   "note": "must be interrupted immediately"
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Sanguine Echo",
+   "ability": "Blood Bolt",
+   "interruptType": "kick",
+   "important": false
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Sanguine Echo",
+   "ability": "Shake It Off",
+   "interruptType": "kick",
+   "important": true,
+   "note": "interrupt immediately; spawns dangerous circles"
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Vel'korath the Sanctified, Vision of the Covenant",
+   "ability": "Hungering Vessels",
+   "interruptType": "kick",
+   "important": true,
+   "note": "kick/stop immediately or wipe"
+  },
+  {
+   "dungeon": "Xul, The Blood Monolith",
+   "mob": "Vel'korath the Sanctified, Vision of the Covenant",
+   "ability": "Sinister Vessels",
+   "interruptType": "kick",
+   "important": false
+  }
+ ]
+}

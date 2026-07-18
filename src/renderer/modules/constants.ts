@@ -21,7 +21,7 @@
   const DEFAULT_PULL_PANEL_POSITION: Point = { x: 16, y: 12 };
   const DEFAULT_RECENT_SKILLS_PANEL_POSITION: Point = { x: 16, y: 200 };
   const DEFAULT_DUNGEON_SCORES_PANEL_POSITION: Point = { x: 16, y: 360 };
-  const DEFAULT_VISIBILITY_SETTINGS: OverlayVisibilitySettings = { showParty: true, showPull: false, showRecentSkills: false, showDungeonScores: true };
+  const DEFAULT_VISIBILITY_SETTINGS: OverlayVisibilitySettings = { showParty: true, showPull: false, showRecentSkills: false, showDungeonScores: true, showDeathLog: false, showCastAlerts: false };
   const DEFAULT_SEASON_START_DATE = '2026-06-23';
   const DEFAULT_RECENT_SKILLS_LIMIT = 7;
   const DEFAULT_CARD_SCALE = 1;

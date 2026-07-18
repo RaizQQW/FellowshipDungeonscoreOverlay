@@ -118,6 +118,9 @@ function resetDungeonScope(state: ParserState): void {
   state.encounters = [];
   state.currentEncounter = null;
   state.npcDeaths = [];
+  state.playerDeaths = [];
+  state.recentDamageByPlayer = new Map();
+  state.pullCasts = new Map();
   state.dungeonPartyIds = new Set();
   state.collectingDungeonParty = false;
   state.currentPull = createCurrentPull();

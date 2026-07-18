@@ -3,3 +3,4 @@ node_modules
 release
 settings.json*
 Fellowship-overlay.zip
+example_logs/

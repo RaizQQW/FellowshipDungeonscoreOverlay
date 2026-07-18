@@ -71,6 +71,15 @@ const recentSkillsPanelEl = mustElement<HTMLElement>('recentSkillsPanel');
 const dungeonScoresPanelEl = mustElement<HTMLElement>('dungeonScoresPanel');
 const showDungeonScoresToggle = document.getElementById('showDungeonScoresToggle') as HTMLInputElement | null;
 const showDungeonScoresToggleLabel = document.getElementById('showDungeonScoresToggleLabel') as HTMLElement | null;
+const deathLogPanelEl = mustElement<HTMLElement>('deathLogPanel');
+const showDeathLogToggle = document.getElementById('showDeathLogToggle') as HTMLInputElement | null;
+const showDeathLogToggleLabel = document.getElementById('showDeathLogToggleLabel') as HTMLElement | null;
+const castAlertPanelEl = mustElement<HTMLElement>('castAlertPanel');
+const showCastAlertsToggle = document.getElementById('showCastAlertsToggle') as HTMLInputElement | null;
+const showCastAlertsToggleLabel = document.getElementById('showCastAlertsToggleLabel') as HTMLElement | null;
+const previewCastAlertsToggle = document.getElementById('previewCastAlertsToggle') as HTMLInputElement | null;
+const previewCastAlertsToggleLabel = document.getElementById('previewCastAlertsToggleLabel') as HTMLElement | null;
+let castAlertPreview = false;
 const recentSkillsSettingsGroup = mustElement<HTMLElement>('recentSkillsSettingsGroup');
 const showRecentSkillsToggle = document.getElementById('showRecentSkillsToggle') as HTMLInputElement | null;
 const showRecentSkillsToggleLabel = document.getElementById('showRecentSkillsToggleLabel') as HTMLElement | null;
@@ -302,6 +311,103 @@ function updateDungeonScoresPanelVisibility(): void {
   updateDungeonScoresPanelVisibilityShared({ dungeonScoresPanelEl, latestData, visibilitySettings });
 }
 
+let deathLogPanelPosition: Point = { x: 16, y: 560 };
+
+// Party death log for the current run, built from ALLY_DEATH events. Newest
+// first; visibility is driven by the overlay-root 'death-log-hidden' class.
+function renderDeathLogPanel(): void {
+  deathLogPanelEl.classList.toggle('hidden', !visibilitySettings.showDeathLog);
+  const deaths = Array.isArray(latestData?.playerDeaths) ? latestData!.playerDeaths : [];
+  const header = `<div class="player-header drag-handle death-log-header"><div class="player-title-block"><div class="player-name">${escapeHtml(t('deathLogTitle'))}</div></div></div>`;
+  if (!deaths.length) {
+    deathLogPanelEl.innerHTML = `${header}<div class="pull-empty">${escapeHtml(t('noDeaths'))}</div>`;
+    return;
+  }
+  const rows = deaths.slice(-12).reverse().map((death) => {
+    const cause = death.killingAbility || death.killerName || '';
+    const causeHtml = cause ? ` <span class="death-log-cause">${escapeHtml(cause)}</span>` : '';
+    const rezHtml = death.revived ? ` <span class="death-log-rez">${escapeHtml(t('revivedSuffix'))}</span>` : '';
+    let tagHtml = '';
+    if (death.category) {
+      const pct = death.fatalFraction != null ? ` ${Math.round(death.fatalFraction * 100)}%` : '';
+      if (death.category === 'oneshot') tagHtml = ` <span class="death-log-tag death-log-tag-oneshot">${escapeHtml(t('oneShot'))}${pct}</span>`;
+      else if (death.category === 'trickle') tagHtml = ` <span class="death-log-tag death-log-tag-trickle">${escapeHtml(t('trickle'))}${death.hitCount ? ` ${death.hitCount} ${escapeHtml(t('hitsSuffix'))}` : ''}</span>`;
+      else tagHtml = ` <span class="death-log-tag death-log-tag-burst">${escapeHtml(t('burst'))}${pct}</span>`;
+    }
+    return `<div class="death-log-row"><span class="death-log-victim">${escapeHtml(death.playerName || 'Unknown')}</span>${causeHtml}${tagHtml}${rezHtml}</div>`;
+  }).join('');
+  deathLogPanelEl.innerHTML = `${header}<div class="death-log-list">${rows}</div>`;
+}
+
+let castAlertPanelPosition: Point = { x: 760, y: 120 };
+
+// Maps a cast to its interrupt-type color tier (grey=stun, yellow=kick,
+// red=kick+important). Casts without an interrupt verdict fall back to the
+// priority color so nothing regresses.
+function castTierClass(cast: { interruptType: string | null; important: boolean; priority: string }): string {
+  if (cast.interruptType === 'stun') return 'cast-int-stun';
+  if (cast.interruptType === 'kick') return cast.important ? 'cast-int-kick-important' : 'cast-int-kick';
+  if (cast.interruptType === 'dodge') return 'cast-int-mechanic';
+  return `cast-prio-${cast.priority}`;
+}
+
+// Out-of-combat preview: synthetic pull covering every color tier and state so
+// the panel can be eyeballed without being in a dungeon. Not real data.
+function buildSampleCastPreview(): FinalizedState['pullCasts'] {
+  const nowIso = new Date().toISOString();
+  return [
+    {
+      unitId: 'preview-brogg', mobName: 'Warlord Brogg (preview)', instances: 1, topPriority: 'stop',
+      casts: [
+        { abilityId: -1, ability: 'Dread Arc', priority: 'stop', target: 'group', affixOnly: false, interruptType: 'kick', important: true, status: 'casting', lastResolvedAt: null },
+        { abilityId: -2, ability: 'Charged Bolt', priority: 'stop', target: 'random', affixOnly: false, interruptType: 'kick', important: false, status: 'available', lastResolvedAt: null },
+        { abilityId: -3, ability: 'Perfect Storm', priority: 'mechanic', target: 'group', affixOnly: false, interruptType: 'dodge', important: false, status: 'available', lastResolvedAt: null },
+      ],
+    },
+    {
+      unitId: 'preview-facestabber', mobName: 'Facestabber (preview)', instances: 2, topPriority: 'stop',
+      casts: [
+        { abilityId: -4, ability: 'Stab Yer Face!', priority: 'stop', target: 'random', affixOnly: false, interruptType: 'stun', important: false, status: 'available', lastResolvedAt: null },
+        { abilityId: -5, ability: 'Kidnap', priority: 'stop', target: 'random', affixOnly: false, interruptType: 'kick', important: true, status: 'justCast', lastResolvedAt: nowIso },
+        { abilityId: -6, ability: 'Silence', priority: 'stop', target: 'random', affixOnly: false, interruptType: 'kick', important: false, status: 'interrupted', lastResolvedAt: nowIso },
+      ],
+    },
+  ];
+}
+
+// Right-side cast-alert panel: pull's caster-mobs (ranked by interrupt priority)
+// and their dangerous casts, highlighted while casting and greyed for a few
+// seconds after they resolve. Data joins live status with the cast catalog in
+// the main process (FinalizedState.pullCasts).
+function renderCastAlertPanel(): void {
+  castAlertPanelEl.classList.toggle('hidden', !(visibilitySettings.showCastAlerts || castAlertPreview));
+  const mobs = castAlertPreview ? buildSampleCastPreview() : (Array.isArray(latestData?.pullCasts) ? latestData!.pullCasts : []);
+  const header = `<div class="player-header drag-handle cast-alert-header"><div class="player-title-block"><div class="player-name">${escapeHtml(t('castAlertsTitle'))}</div></div></div>`;
+  if (!mobs.length) {
+    castAlertPanelEl.innerHTML = `${header}<div class="pull-empty">${escapeHtml(t('noCastsNearby'))}</div>`;
+    return;
+  }
+  const now = Date.now();
+  const blocks = mobs.slice(0, 6).map((mob) => {
+    const rows = mob.casts.map((cast) => {
+      let visualState = 'available';
+      if (cast.status === 'casting') {
+        visualState = 'casting';
+      } else if (cast.status === 'justCast' || cast.status === 'interrupted') {
+        const age = cast.lastResolvedAt ? now - Date.parse(cast.lastResolvedAt) : Number.POSITIVE_INFINITY;
+        if (age < 4000) visualState = cast.status === 'interrupted' ? 'interrupted' : 'justcast';
+      }
+      const tier = castTierClass(cast);
+      const showStar = (cast.interruptType === 'kick' && cast.important) || (cast.interruptType === null && cast.priority === 'stop');
+      const star = showStar ? '<span class="cast-star">\u2605</span> ' : '';
+      return `<div class="cast-row cast-${visualState} ${tier}">${star}<span class="cast-name">${escapeHtml(cast.ability)}</span></div>`;
+    }).join('');
+    const countBadge = mob.instances > 1 ? ` <span class="cast-mob-count">\u00d7${mob.instances}</span>` : '';
+    return `<div class="cast-mob cast-top-${mob.topPriority}"><div class="cast-mob-name">${escapeHtml(mob.mobName)}${countBadge}</div><div class="cast-list">${rows}</div></div>`;
+  }).join('');
+  castAlertPanelEl.innerHTML = `${header}${blocks}`;
+}
+
 // The hero (character) of the latest run in the active log: the local player
 // is recentSkillsPlayerId and their className is the hero name (Sylvie,
 // Helena, Xavian, ...). Null until a run has been parsed.
@@ -412,6 +518,8 @@ function updateOverlayVisibility(): void {
   overlayRoot.classList.toggle('pull-hidden', !visibilitySettings.showPull);
   overlayRoot.classList.toggle('recent-skills-hidden', !visibilitySettings.showRecentSkills);
   overlayRoot.classList.toggle('dungeon-scores-hidden', !visibilitySettings.showDungeonScores);
+  overlayRoot.classList.toggle('death-log-hidden', !visibilitySettings.showDeathLog);
+  overlayRoot.classList.toggle('cast-alerts-hidden', !visibilitySettings.showCastAlerts);
   recentSkillsSettingsGroup.classList.toggle('hidden', !visibilitySettings.showRecentSkills);
 }
 
@@ -728,6 +836,13 @@ function applyTranslations(): void {
   if (showDungeonScoresToggleLabel) showDungeonScoresToggleLabel.textContent = t('showDungeonScores');
   if (showDungeonScoresToggle) showDungeonScoresToggle.checked = !!visibilitySettings.showDungeonScores;
   renderDungeonScoresPanel();
+  if (showDeathLogToggleLabel) showDeathLogToggleLabel.textContent = t('showDeathLog');
+  if (showDeathLogToggle) showDeathLogToggle.checked = !!visibilitySettings.showDeathLog;
+  renderDeathLogPanel();
+  if (showCastAlertsToggleLabel) showCastAlertsToggleLabel.textContent = t('showCastAlerts');
+  if (previewCastAlertsToggleLabel) previewCastAlertsToggleLabel.textContent = t('previewCastAlerts');
+  if (showCastAlertsToggle) showCastAlertsToggle.checked = !!visibilitySettings.showCastAlerts;
+  renderCastAlertPanel();
   if (!listeningHotkeyAction) setHotkeyStatus();
   updateHotkeyButtons();
 }
@@ -821,6 +936,27 @@ initializePanel({
   savePosition: saveDungeonScoresPanelPosition,
 });
 
+initializePanel({
+  panel: deathLogPanelEl,
+  position: deathLogPanelPosition,
+  getDragHandle: () => deathLogPanelEl?.querySelector<HTMLElement>('.drag-handle'),
+  getOverlayLocked: () => overlayLocked,
+  savePosition: (position: Point) => { deathLogPanelPosition = position; },
+});
+
+initializePanel({
+  panel: castAlertPanelEl,
+  position: castAlertPanelPosition,
+  getDragHandle: () => castAlertPanelEl?.querySelector<HTMLElement>('.drag-handle'),
+  getOverlayLocked: () => overlayLocked,
+  savePosition: (position: Point) => { castAlertPanelPosition = position; },
+});
+
+// Paint an initial (empty-state) render so the panels are never a blank
+// zero-size box before the first log-data event arrives.
+renderDeathLogPanel();
+renderCastAlertPanel();
+
 pickFileBtn.addEventListener('click', async () => {
   const result = await window.api.pickLogFile();
   if (!result?.canceled) setLogSourceText(result);
@@ -848,6 +984,25 @@ showRecentSkillsToggle?.addEventListener('change', (event: Event) => {
 });
 showDungeonScoresToggle?.addEventListener('change', (event: Event) => {
   setDungeonScoresVisibility((event.currentTarget as HTMLInputElement).checked);
+});
+
+showDeathLogToggle?.addEventListener('change', (event: Event) => {
+  visibilitySettings = { ...visibilitySettings, showDeathLog: (event.currentTarget as HTMLInputElement).checked };
+  saveVisibilitySettings();
+  updateOverlayVisibility();
+  renderDeathLogPanel();
+});
+
+previewCastAlertsToggle?.addEventListener('change', (event: Event) => {
+  castAlertPreview = (event.currentTarget as HTMLInputElement).checked;
+  renderCastAlertPanel();
+});
+
+showCastAlertsToggle?.addEventListener('change', (event: Event) => {
+  visibilitySettings = { ...visibilitySettings, showCastAlerts: (event.currentTarget as HTMLInputElement).checked };
+  saveVisibilitySettings();
+  updateOverlayVisibility();
+  renderCastAlertPanel();
 });
 recentSkillsLimitInput.addEventListener('change', (event: Event) => {
   setRecentSkillsLimit((event.currentTarget as HTMLInputElement).value);
@@ -933,6 +1088,8 @@ window.api.onLogData((payload) => {
     playersContainer.innerHTML = `<div class="panel player-card interactive floating-card" style="left:16px;top:64px;">${escapeHtml(t('errorPrefix'))}: ${escapeHtml(payload?.error || 'unknown')}</div>`;
     cardMap.clear();
     renderRecentSkillsPanel([]);
+    renderDeathLogPanel();
+    renderCastAlertPanel();
     updatePullPanelVisibility();
     updateRecentSkillsPanelVisibility();
     return;
@@ -940,6 +1097,8 @@ window.api.onLogData((payload) => {
 
   latestData = payload.data || null;
   renderPlayers(latestData?.players || []);
+  renderDeathLogPanel();
+  renderCastAlertPanel();
   updateRecentSkillsPanelVisibility();
   // Re-render (not just re-show) when the detected hero changes so the
   // current character's section moves to the top after a role swap.

@@ -18,6 +18,8 @@ export interface OverlayVisibilitySettings {
   showPull: boolean;
   showRecentSkills: boolean;
   showDungeonScores: boolean;
+  showDeathLog: boolean;
+  showCastAlerts: boolean;
 }
 
 export interface OverlayPanelPositions {
@@ -362,6 +364,75 @@ export interface NpcDeathEntry {
   killingAbility: string | null;
 }
 
+export interface PlayerDeathEntry {
+  ts: string | null;
+  playerId: string;
+  playerName: string | null;
+  killerId: string | null;
+  killerName: string | null;
+  killingAbilityId: number | null;
+  killingAbility: string | null;
+  encounterName: string | null;
+  category: 'oneshot' | 'burst' | 'trickle' | null;
+  fatalFraction: number | null;
+  hitCount: number | null;
+  revived: boolean;
+}
+
+export interface RecentDamageHit {
+  tsMs: number;
+  amount: number;
+  maxHp: number;
+  abilityId: number | null;
+}
+
+export type CastPriority = 'stop' | 'mechanic' | 'ignore' | 'review';
+export type CastTarget = 'tank' | 'group' | 'random' | 'self' | null;
+export type PullCastStatus = 'available' | 'casting' | 'justCast' | 'interrupted';
+export type CastInterruptType = 'stun' | 'kick' | 'dodge' | 'other';
+
+export interface CastCatalogEntry {
+  abilityId: number;
+  ability: string;
+  mob: string;
+  priority: CastPriority;
+  target: CastTarget;
+  affixOnly: boolean;
+  interruptType: CastInterruptType | null;
+  important: boolean;
+}
+
+export interface NpcCastRecord {
+  lastStartAt: string | null;
+  lastResolvedAt: string | null;
+  status: PullCastStatus;
+}
+
+export interface NpcCastTrack {
+  mobName: string;
+  casts: Map<number, NpcCastRecord>;
+}
+
+export interface PullCast {
+  abilityId: number;
+  ability: string;
+  priority: CastPriority;
+  target: CastTarget;
+  affixOnly: boolean;
+  interruptType: CastInterruptType | null;
+  important: boolean;
+  status: PullCastStatus;
+  lastResolvedAt: string | null;
+}
+
+export interface PullCastMob {
+  unitId: string;
+  mobName: string;
+  instances: number;
+  topPriority: CastPriority;
+  casts: PullCast[];
+}
+
 export interface ParserState {
   dungeon: DungeonState;
   latestLogTs: string | null;
@@ -369,6 +440,9 @@ export interface ParserState {
   encounters: EncounterState[];
   currentEncounter: EncounterState | null;
   npcDeaths: NpcDeathEntry[];
+  playerDeaths: PlayerDeathEntry[];
+  recentDamageByPlayer: Map<string, RecentDamageHit[]>;
+  pullCasts: Map<string, NpcCastTrack>;
   rawCounters: Map<string, number>;
   dungeonPartyIds: Set<string>;
   collectingDungeonParty: boolean;
@@ -402,6 +476,8 @@ export interface FinalizedState {
   partyPlayerIds: string[];
   encounters: FinalizedEncounter[];
   npcDeaths: NpcDeathEntry[];
+  playerDeaths: PlayerDeathEntry[];
+  pullCasts: PullCastMob[];
   currentPull: CurrentPullSummary;
   counters: Record<string, number>;
 }
